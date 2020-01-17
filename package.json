@@ -1,0 +1,19 @@
+{
+  "name": "lbh-book-a-room",
+  "version": "1.0.0",
+  "description": "LBH Boook a room project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LBHackney-IT/lbh-book-a-room.git"
+  },
+  "author": "Jayson Hunter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LBHackney-IT/lbh-book-a-room/issues"
+  },
+  "homepage": "https://github.com/LBHackney-IT/lbh-book-a-room#readme"
+}
