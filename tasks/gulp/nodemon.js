@@ -8,6 +8,6 @@ const nodemon = require('nodemon')
 // ---------------------------------------
 gulp.task('nodemon', () => {
   return nodemon({
-    script: 'app/app.js'
+    script: './app.js'
   })
 })

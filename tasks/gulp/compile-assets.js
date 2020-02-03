@@ -45,10 +45,10 @@ const errorHandler = function (error) {
   this.emit('end')
 }
 // different entry points for both streams below and depending on destination flag
-const compileStyleshet = isDist ? configPaths.src + 'all.scss' : configPaths.app + 'assets/scss/app.scss'
+const compileStylesheet = isDist ? configPaths.src + 'all.scss' : configPaths.app + 'scss/main.scss'
 
 gulp.task('scss:compile', () => {
-  const compile = gulp.src(compileStyleshet)
+  const compile = gulp.src(compileStylesheet)
     .pipe(plumber(errorHandler))
     .pipe(sass())
     // minify css add vendor prefixes and normalize to compiled css
@@ -78,7 +78,7 @@ gulp.task('scss:compile', () => {
 gulp.task('js:compile', () => {
   // for dist/ folder we only want compiled 'all.js' file
   // const srcFiles = isDist ? configPaths.src + 'all.js' : configPaths.src + '**/*.js'
-  const srcFiles = configPaths.app + 'assets/js/main.js'
+  const srcFiles = configPaths.app + 'js/main.js'
   return gulp.src([
     srcFiles,
     '!' + configPaths.src + '**/*.test.js'
