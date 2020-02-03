@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/main.css">
+</head>
+<body class="govuk-template__body {{ bodyClasses }}">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    {% block bodyStart %}{% endblock %}
+
+    {% from "lbh-header/macro.njk" import lbhHeader %}
+    {% from "lbh-phase-banner/macro.njk" import lbhPhaseBanner %}
+
+    {% block header %}
+      {{ lbhHeader({
+          "isHome": true,
+          "homepageUrl": "/",
+          "serviceName": "Book a meeting room"
+      }) }}
+
+      {{ lbhPhaseBanner({
+        "tag": {
+          "text": "Beta"
+        },
+        "html": "This is a new service. Tell us what you think, <a href='#'>your feedback</a> will help us improve it."
+      }) }}
+    {% endblock %}
+
+    {% block main %}
+      {% block beforeContent %}{% endblock %}
+      <main class="lbh-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        <div class="lbh-container">
+          {% block content %}{% endblock %}
+        </div>
+      </main>
+    {% endblock %}
+
+    {% block footer %}
+      {# {{ govukFooter({}) }} #}
+    {% endblock %}
+
+    {% block bodyEnd %}{% endblock %}
+  </body>
+</html>

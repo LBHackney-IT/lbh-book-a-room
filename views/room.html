@@ -1,0 +1,80 @@
+{% extends "./layouts/default.html" %}
+{% from "lbh-button/macro.njk" import lbhButton %}
+
+{% block content %}
+    <h1>Book {{ roomName }}</h1>
+    <h4>Room description</h4>
+    <p class="lbh-body-s">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora quo, aliquam nam libero quia consequatur architecto eveniet inventore quaerat blanditiis placeat nulla, aspernatur enim quasi in dolore amet vitae rerum?</p>
+    <p class="lbh-body-s">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora quo, aliquam nam libero quia consequatur architecto eveniet inventore quaerat blanditiis placeat nulla, aspernatur enim quasi in dolore amet vitae rerum?</p>
+
+    <h4>Room details</h4>
+    <h4>Address</h4>
+    Dalston Square <br>
+    London <br>
+    E8 3BQ
+
+    <h4>Capacity</h3>
+    <ul class="lbh-list + lbh-list--bullet">
+        <li>35 standing</li>
+        <li>20 sitting</li>
+    </ul>
+
+    <h4>Prices</h4>
+    <ul class="lbh-list + lbh-list--bullet">
+        <li>£20 per hour during library opening hours</li>
+        <li>£15 per hour for projector hire</li>
+    </ul>
+
+    <h4>Room features</h4>
+    <ul class="lbh-list + lbh-list--bullet">
+        <li>natural light</li>
+        <li>blackout curtains</li>
+        <li>free wifi</li>
+        <li>projector and connections</li>
+        <li>10 power points</li>
+        <li>flip chart</li>
+        <li>fridge</li>
+        <li>small kitchenette</li>
+    </ul>
+
+    <h4>What's not provided</h4>
+    <ul class="lbh-list + lbh-list--bullet">
+        <li>paper and pens</li>
+        <li>microphone</li>
+        <li>technical support</li>
+        <li>additional equipment</li>
+    </ul>
+
+    <h4>What can the room be used for?</h4>
+    <ul class="lbh-list + lbh-list--bullet">
+        <li>meeting room</li>
+        <li>workshops</li>
+        <li>training</li>
+    </ul>
+
+    <h4>The room cannot be used for</h4>
+    <ul class="lbh-list + lbh-list--bullet">
+        <li>children's parties</li>
+        <li>music events</li>
+        <li>ceremonies</li>
+    </ul>
+
+    <h4>Acessibility</h4>
+    <ul class="lbh-list + lbh-list--bullet">
+        <li>wheelchair accessible</li>
+        <li>toilets with disabled access</li>
+    </ul>
+
+    <hr>
+
+    <h4>Select  timeslot</h4>
+
+
+    {{ lbhButton({
+        "text": "Request booking"
+    }) }}
+
+    <p class="lbh-body-s">Visit our <a href="#">Dalston Library</a> information page to find out about the great services and free activities that the library provides </a></p>
+    <p class="lbh-body-s">If you interested in seeing what other spaces are available for hire in the libraries across Hackney, then visit our <a href="#">meeting rooms in Hackney libraries</a> section</p>
+ 
+    {% endblock %}
