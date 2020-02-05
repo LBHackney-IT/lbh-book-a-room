@@ -10,7 +10,7 @@
   "node_modules": "node_modules/",
   "package": "package/",
   "public": "public/",
-  "src": "src/",
+  "src": "app/",
     "components": "src/components/",
   "ports": {
     "app": 3000,
