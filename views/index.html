@@ -1,6 +1,7 @@
 {% extends "./layouts/default.html" %}
 
 {% from "lbh-button/macro.njk" import lbhButton %}
+{% from "partials/roomCard.html" import roomCard %}
 
 {% block content %}
  <h1>Meeting rooms in Hackney libraries</h1>
@@ -44,33 +45,7 @@
     ]%}
 
  {% for room in roomsJSON %}
- <div class="room-card">
-     <div class="room-card__image-container">
-         <img src="https://via.placeholder.com/300x230" alt="">
-     </div>
-     <div class="room-card__meta-container">
-        <div class="room-meta__room-name lbh-heading-h5">
-            {{ room.roomName }}
-        </div> 
-        <div class="room-meta__content">
-            <h5>Capacity</h5>
-                <ul class="lbh-list + lbh-list--bullet">
-                    <li>35 standing</li>
-                    <li>20 sitting</li>
-                </ul>
-            
-                <h5>Prices</h5>
-                <ul class="lbh-list + lbh-list--bullet">
-                    <li>£20 per hour during library opening hours</li>
-                    <li>£15 per hour for projector hire</li>
-                </ul>
-        </div>
-    
-          <a href="/room/{{ room.roomName }}" role="button" draggable="false" class="govuk-button  lbh-button" data-module="govuk-button">
-            View meeting room
-          </a>
-     </div>
- </div>
+        {{ roomCard(room) }}
  {% endfor %}
 
 {% endblock %}
