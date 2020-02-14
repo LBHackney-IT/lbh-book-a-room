@@ -1,32 +1,36 @@
 {% extends "./layouts/default.html" %}
 {% from "lbh-button/macro.njk" import lbhButton %}
+{% from "lbh-date-input/macro.njk" import lbhDateInput %}
 
 {% block content %}
     <h1>Book {{ roomName }}</h1>
-    <h4>Room description</h4>
+
+    <img src="/public/assets/dalston-library-education-room-IMG_6934.jpg" alt="">
+    
+    <h3>Room description</h3>
     <p class="lbh-body-s">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora quo, aliquam nam libero quia consequatur architecto eveniet inventore quaerat blanditiis placeat nulla, aspernatur enim quasi in dolore amet vitae rerum?</p>
     <p class="lbh-body-s">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora quo, aliquam nam libero quia consequatur architecto eveniet inventore quaerat blanditiis placeat nulla, aspernatur enim quasi in dolore amet vitae rerum?</p>
 
-    <h4>Room details</h4>
+    <h3>Room details</h3>
     <h4>Address</h4>
     Dalston Square <br>
     London <br>
     E8 3BQ
 
     <h4>Capacity</h3>
-    <ul class="lbh-list + lbh-list--bullet">
+    <ul class="mt10 lbh-list + lbh-list--bullet">
         <li>35 standing</li>
         <li>20 sitting</li>
     </ul>
 
     <h4>Prices</h4>
-    <ul class="lbh-list + lbh-list--bullet">
+    <ul class="mt10 lbh-list + lbh-list--bullet">
         <li>£20 per hour during library opening hours</li>
         <li>£15 per hour for projector hire</li>
     </ul>
 
     <h4>Room features</h4>
-    <ul class="lbh-list + lbh-list--bullet">
+    <ul class="mt10 lbh-list + lbh-list--bullet">
         <li>natural light</li>
         <li>blackout curtains</li>
         <li>free wifi</li>
@@ -38,7 +42,7 @@
     </ul>
 
     <h4>What's not provided</h4>
-    <ul class="lbh-list + lbh-list--bullet">
+    <ul class="mt10 lbh-list + lbh-list--bullet">
         <li>paper and pens</li>
         <li>microphone</li>
         <li>technical support</li>
@@ -46,32 +50,68 @@
     </ul>
 
     <h4>What can the room be used for?</h4>
-    <ul class="lbh-list + lbh-list--bullet">
+    <ul class="mt10 lbh-list + lbh-list--bullet">
         <li>meeting room</li>
         <li>workshops</li>
         <li>training</li>
     </ul>
 
     <h4>The room cannot be used for</h4>
-    <ul class="lbh-list + lbh-list--bullet">
+    <ul class="mt10 lbh-list + lbh-list--bullet">
         <li>children's parties</li>
         <li>music events</li>
         <li>ceremonies</li>
     </ul>
 
     <h4>Acessibility</h4>
-    <ul class="lbh-list + lbh-list--bullet">
+    <ul class="mt10 lbh-list + lbh-list--bullet">
         <li>wheelchair accessible</li>
         <li>toilets with disabled access</li>
     </ul>
 
     <hr>
 
-    <h4>Select  timeslot</h4>
+    <h4>Check room availability</h4>
+    
+    <h5>Enter the date</h5>
 
-    <a href="/booking" role="button" draggable="false" class="govuk-button  lbh-button" data-module="govuk-button">
-        Request booking
-      </a>
+    {{ lbhDateInput({
+        "id": "bookingdate",
+        "namePrefix": "bookingdate",
+        "fieldset": {
+          "legend": {
+            "text": "Date you'd like to book this room"
+          }
+        },
+        "errorMessage": {
+            "text": "Error message goes here"
+        },
+        "hint": {
+          "text": "For example, 31 4 2020"
+        },
+        "items": [
+          {
+            "name": "day",
+            "classes": "govuk-input--width-2"
+          },
+          {
+            "name": "month",
+            "classes": "govuk-input--width-2"
+          },
+          {
+            "name": "year",
+            "classes": "govuk-input--width-4"
+          }
+        ]
+      }) }}
+
+    <a href="#" role="button" draggable="false" class="govuk-button  lbh-button" data-module="govuk-button">
+        Show available times
+    </a>
+
+    <p>For out of hours and repeat booking enquiries, please email us at <a href="mailto:library.roombooking@hackney.gov.uk">library.roombooking@hackney.gov.uk</a></p>
+
+    <hr>
 
     <p class="lbh-body-s">Visit our <a href="#">Dalston Library</a> information page to find out about the great services and free activities that the library provides </a></p>
     <p class="lbh-body-s">If you interested in seeing what other spaces are available for hire in the libraries across Hackney, then visit our <a href="#">meeting rooms in Hackney libraries</a> section</p>
