@@ -71,6 +71,7 @@ gulp.task('serve', gulp.parallel(
 gulp.task('dev', gulp.series(
   'clean',
   'copy-assets',
+  'copy:assets',
   'sassdoc',
   'serve'
 ))
