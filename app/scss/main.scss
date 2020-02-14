@@ -11,7 +11,7 @@ MASTER PARTIAL SCSS IMPORT FILE
 
 // Variables
 // ======================
-//@import "variables/_partial-import";
+@import "variables/_partial-import";
 
 
 // Functions
@@ -31,12 +31,12 @@ MASTER PARTIAL SCSS IMPORT FILE
 
 // Base styles
 // ======================
-//@import "base/_partial-import";
+@import "base/_partial-import";
 
 
 // Helpers
 // ======================
-//@import "helpers/_partial-import";
+@import "helpers/_partial-import";
 
 
 // Layout

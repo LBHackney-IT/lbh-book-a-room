@@ -1,5 +1,5 @@
 .room-card {
-    display: flex;
+    display: block;
     position: relative;
     border: 1px solid #b2b2b2;
     border-radius: 4px;
@@ -7,11 +7,11 @@
     
 
     &__image-container {
-        width: 33%;
+       
     }
 
     &__meta-container {
-        margin: 0 0 0 20px;
+        margin: 20px 0 0;
     }
 
     .room-meta__content {
@@ -19,6 +19,20 @@
      }
 
      .room-meta__room-name {
-         font-weight: bold;;
+         font-weight: 700;
+         margin-bottom: 10px;
+     }
+
+     @media (min-width: 768px) {
+        display: flex;
+
+        &__image-container {
+            width: 33%;
+        }
+
+        &__meta-container {
+            margin: 0 0 0 20px;
+        }
+
      }
 }
