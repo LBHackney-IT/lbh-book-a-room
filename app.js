@@ -1,79 +1,33 @@
 // Express server configuration
-// configuration of the app has been separated
-// from the actual server initialization
-// (server.js) to support testing
 
+const createError = require('http-errors')
 const express       = require('express')
-// const morgan        = require('morgan')
-// const cookieSession = require('cookie-session')
-// const rateLimit     = require('express-rate-limit')
-// const slowDown      = require('express-slow-down')
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const morgan        = require('morgan')
 
-// const keys           = require('./config/keys')
+const indexRouter = require('./routes/index');
+const roomsRouter = require('./routes/rooms');
+const bookingsRouter = require('./routes/bookings');
+const thankyouRouter = require('./routes/thankyou');
+
 // const authRoutes     = require('./routes/api/auth')
 // const onschedRoutes  = require('./routes/api/onsched')
+
+const cookieSession = require('cookie-session')
+const rateLimit     = require('express-rate-limit')
+const slowDown      = require('express-slow-down')
+
+const keys           = require('./config/keys')
 
 const nunjucks  = require('nunjucks');
 
 //----------------------
 // Configuration
 //----------------------
-// instantiate the express application
-// the app object is used to configure the
-// server, listen to incoming request, and
-// route them to the appropriate route handlers
+
 const app = express();
-const path = require('path');
-
-var _templates = [
-  'views/',
-  'node_modules/lbh-frontend/lbh/',
-  'node_modules/lbh-frontend/lbh/components/',
-  'node_modules/govuk-frontend/govuk/',
-  'node_modules/govuk-frontend/govuk/components/'
-];
-
-nunjucks.configure( _templates, {
-    autoescape: true,
-    cache: false,
-    express: app
-} ) ;
-
-app.set('views', path.join(__dirname, 'views'));
-
-// Set Nunjucks as rendering engine for pages with .html suffix
-app.engine( 'html', nunjucks.render ) ;
-app.set( 'view engine', 'html' ) ;
-app.use('/public', express.static('public'));
-app.use('/assets', express.static('node_modules/lbh-frontend/lbh/assets'));
-app.use('/assets', express.static('node_modules/govuk-frontend/govuk/assets'));
-
-
-
-//-----------------------
-// Server Middleware
-//-----------------------
-// each call to app.use wires up a piece of middleware
-// inside the application.  these middleware modify
-// incoming requests to the app BEFORE they are sent to
-// the route handlers
-
-/*
-// if keys.isDevelopment is set, add console output
-if ( keys.isDevelopment ) {
-  app.use( morgan('dev') )
-}
-
-// tell express to use cookie-session
-// and configure options
-app.use(
-  cookieSession(
-    { 
-      maxAge: 60 * 60 * 1000,
-      keys:   [ keys.cookieKey ]
-    }
-  )
-)
 
 // speed limiter configuration
 const speedLimiter = slowDown(
@@ -94,75 +48,94 @@ const rateLimiter = rateLimit(
   }
 )
 
-// add rate/speed limiting to the API endpoints
-app.use( '/api', speedLimiter )
-app.use( '/api', rateLimiter )
+const _templates = [
+  'views/',
+  'node_modules/lbh-frontend/lbh/',
+  'node_modules/lbh-frontend/lbh/components/',
+  'node_modules/govuk-frontend/govuk/',
+  'node_modules/govuk-frontend/govuk/components/'
+];
+
+nunjucks.configure( _templates, {
+    autoescape: true,
+    cache: false,
+    express: app
+} ) ;
+
+app.set('views', path.join(__dirname, 'views'));
+
+// Set Nunjucks as rendering engine for pages with .html suffix
+app.engine( 'html', nunjucks.render ) ;
+app.set( 'view engine', 'html' ) ;
+
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+
+app.use('/public', express.static('public'));
+app.use('/assets', express.static('node_modules/lbh-frontend/lbh/assets'));
+app.use('/assets', express.static('node_modules/govuk-frontend/govuk/assets'));
+
+
+
+// if keys.isDevelopment is set, add console output
+if ( keys.isDevelopment ) {
+  app.use( morgan('dev') )
+}
+
+
+// tell express to use cookie-session
+// and configure options
+app.use(
+  cookieSession(
+    { 
+      maxAge: 60 * 60 * 1000,
+      keys:   [ keys.cookieKey ]
+    }
+  )
+)
 
 
 
 //-------------------------
 // Route Handlers
 //-------------------------
+
+app.use('/', indexRouter);
+app.use('/room', roomsRouter);
+app.use('/booking', bookingsRouter);
+app.use('/thank-you', thankyouRouter);
+
+/* === OnSched API === */
+// add rate/speed limiting to the API endpoints
+
+// app.use( '/api', speedLimiter )
+// app.use( '/api', rateLimiter )
 // app.use( '/api/auth',    authRoutes )
 // app.use( '/api/onsched', onschedRoutes )
 
-*/
-// configure static asset routes for the clients apps
-// only if NODE_ENV is 'production' or 'sandbox'
-// these are only routes used for the deployed app
 
-//console.log(process.env.NODE_ENV);
-
-if ( process.env.NODE_ENV === 'production' ||
-     process.env.NODE_ENV === 'sandbox' ) {
-
-  // Tell Express to serve up production assets
-  // like our main.js file or main.css file
-  //app.use( express.static('public') )
-  // if we don't know the file that is being requested,
-  // look inside public to see if there
-  // is a match.  the path is relative to the app root
-
-  // for all other/unknown routes,
-  // Express will serve up the index.html file
-  // if it doesn't recognize the route
-  // Essentially hand it over to the client app
-
-};
-  
-
-app.use( express.static('/public') );
-
-app.get('/', function(req, res){
-  res.render('index.html', {title: 'Main page'});    
-});
-
-app.get('/libraries/:id', function(req, res){
-  const name = req.params.id;
-  const type = "libraries";
-
-  res.render('room-list.html', {venueName: name, venueType: type});
-});
-
-app.get('/room/:id', function(req, res){
-  const name = req.params.id;
-
-  res.render('room.html', {roomName: name});
-});
-
-app.get('/booking', function(req, res){
-  const name = req.params.id;
-
-  res.render('booking-form.html', {roomName: name});
-});
-
-app.get('/thank-you', function(req, res){
-  const name = req.params.id;
-
-  res.render('thank-you.html', {roomName: name});
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  next(createError(404));
 });
 
 
-// export the app for testing and
-// use in server.js
+
+//-------------------------
+// Error Handlers
+//-------------------------
+
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
+
+// export the app
 module.exports = app
