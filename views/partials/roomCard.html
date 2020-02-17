@@ -1,7 +1,7 @@
 {% macro roomCard(data) %}
 <div class="room-card">
     <div class="room-card__image-container">
-        <img src="/public/assets/dalston-library-education-room-IMG_6934.jpg" alt="">
+        <img src="/public/assets/dalston-library-education-room-IMG_6934.jpg" alt="{{ data.roomName }}">
     </div>
     <div class="room-card__meta-container">
        <div class="room-meta__room-name lbh-heading-h5">
@@ -21,7 +21,7 @@
                </ul>
        </div>
    
-         <a href="/room/{{ data.roomName }}" role="button" draggable="false" class="govuk-button  lbh-button" data-module="govuk-button">
+         <a href="/rooms/{{ data.roomName }}" role="button" draggable="false" class="govuk-button  lbh-button" data-module="govuk-button">
            View meeting room
          </a>
     </div>

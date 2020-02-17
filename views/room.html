@@ -5,31 +5,31 @@
 {% block content %}
     <h1>Book {{ roomName }}</h1>
 
-    <img src="/public/assets/dalston-library-education-room-IMG_6934.jpg" alt="">
+    <img src="/public/assets/dalston-library-education-room-IMG_6934.jpg" alt="{{ roomName }}">
     
-    <h3>Room description</h3>
+    <h2>Room description</h2>
     <p class="lbh-body-s">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora quo, aliquam nam libero quia consequatur architecto eveniet inventore quaerat blanditiis placeat nulla, aspernatur enim quasi in dolore amet vitae rerum?</p>
     <p class="lbh-body-s">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora quo, aliquam nam libero quia consequatur architecto eveniet inventore quaerat blanditiis placeat nulla, aspernatur enim quasi in dolore amet vitae rerum?</p>
 
-    <h3>Room details</h3>
-    <h4>Address</h4>
+    <h2>Room details</h2>
+    <h3>Address</h3>
     Dalston Square <br>
     London <br>
     E8 3BQ
 
-    <h4>Capacity</h3>
+    <h3>Capacity</h3>
     <ul class="mt10 lbh-list + lbh-list--bullet">
         <li>35 standing</li>
         <li>20 sitting</li>
     </ul>
 
-    <h4>Prices</h4>
+    <h3>Prices</h3>
     <ul class="mt10 lbh-list + lbh-list--bullet">
         <li>£20 per hour during library opening hours</li>
         <li>£15 per hour for projector hire</li>
     </ul>
 
-    <h4>Room features</h4>
+    <h3>Room features</h3>
     <ul class="mt10 lbh-list + lbh-list--bullet">
         <li>natural light</li>
         <li>blackout curtains</li>
@@ -41,7 +41,7 @@
         <li>small kitchenette</li>
     </ul>
 
-    <h4>What's not provided</h4>
+    <h3>What's not provided</h3>
     <ul class="mt10 lbh-list + lbh-list--bullet">
         <li>paper and pens</li>
         <li>microphone</li>
@@ -49,21 +49,21 @@
         <li>additional equipment</li>
     </ul>
 
-    <h4>What can the room be used for?</h4>
+    <h3>What can the room be used for?</h3>
     <ul class="mt10 lbh-list + lbh-list--bullet">
         <li>meeting room</li>
         <li>workshops</li>
         <li>training</li>
     </ul>
 
-    <h4>The room cannot be used for</h4>
+    <h3>The room cannot be used for</h3>
     <ul class="mt10 lbh-list + lbh-list--bullet">
         <li>children's parties</li>
         <li>music events</li>
         <li>ceremonies</li>
     </ul>
 
-    <h4>Acessibility</h4>
+    <h3>Acessibility</h3>
     <ul class="mt10 lbh-list + lbh-list--bullet">
         <li>wheelchair accessible</li>
         <li>toilets with disabled access</li>
@@ -71,9 +71,9 @@
 
     <hr>
 
-    <h3>Check room availability</h3>
+    <div class="lbh-heading-h2">Check room availability</div>
     
-    <h4>Enter the date</h4>
+    <div class="lbh-heading-h4">Enter the date</div>
 
     {{ lbhDateInput({
         "id": "bookingdate",
@@ -82,9 +82,6 @@
           "legend": {
             "text": "Date you'd like to book this room"
           }
-        },
-        "errorMessage": {
-            "text": "Error message goes here"
         },
         "hint": {
           "text": "For example, 31 4 2020"
