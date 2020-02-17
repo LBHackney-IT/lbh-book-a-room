@@ -47,11 +47,9 @@ gulp.task('test', gulp.series(
   'scss:compile'
 ))
 
-// Copy assets task for local & heroku --
-// Copies files to
-// taskArguments.destination (public)
+// Compile css and js --
 // --------------------------------------
-gulp.task('copy-assets', gulp.series(
+gulp.task('compile', gulp.series(
   'styles',
   'scripts'
 ))
@@ -70,7 +68,8 @@ gulp.task('serve', gulp.parallel(
 // --------------------------------------
 gulp.task('dev', gulp.series(
   'clean',
-  'copy-assets',
+  'styles',
+  'scripts',
   'copy:assets',
   'sassdoc',
   'serve'
@@ -79,14 +78,23 @@ gulp.task('dev', gulp.series(
 // Build package task -----------------
 // Prepare package folder for publishing
 // -------------------------------------
+gulp.task('build:dev', gulp.series(
+  'clean',
+  'styles',
+  'scripts',
+  'copy:assets'
+))
+
 gulp.task('build:package', gulp.series(
   'clean',
   'copy-files',
   'js:compile'
 ))
+
 gulp.task('build:dist', gulp.series(
   'clean',
-  'copy-assets',
+  'styles',
+  'scripts',
   'copy:assets',
   'update-assets-version'
 ))
