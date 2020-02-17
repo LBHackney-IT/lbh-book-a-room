@@ -1,0 +1,12 @@
+version: '3'
+services:
+  app:
+    image: lbh-book-a-room
+    build: .
+    networks:
+      - backend
+    ports:
+      - "3000:3000"
+networks:
+  backend:
+    driver: bridge
