@@ -1,10 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/', function(req, res){
-  const name = req.params.id;
+const booking_controller = require('../controllers/bookingController.js');
 
-  res.render('booking-form.html', {roomName: name, title: "Booking form"});
-});
+// GET request for new booking form.
+router.get('/', booking_controller.booking);
 
-  module.exports = router;
+// POST request for new booking form.
+router.post('/', booking_controller.booking_create_post);
+
+module.exports = router;

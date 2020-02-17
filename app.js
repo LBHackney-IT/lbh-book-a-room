@@ -10,7 +10,7 @@ const morgan        = require('morgan')
 const indexRouter = require('./routes/index');
 const roomsRouter = require('./routes/rooms');
 const bookingsRouter = require('./routes/bookings');
-const thankyouRouter = require('./routes/thankyou');
+
 
 // const authRoutes     = require('./routes/api/auth')
 // const onschedRoutes  = require('./routes/api/onsched')
@@ -103,9 +103,8 @@ app.use(
 //-------------------------
 
 app.use('/', indexRouter);
-app.use('/room', roomsRouter);
+app.use('/rooms', roomsRouter);
 app.use('/booking', bookingsRouter);
-app.use('/thank-you', thankyouRouter);
 
 /* === OnSched API === */
 // add rate/speed limiting to the API endpoints
