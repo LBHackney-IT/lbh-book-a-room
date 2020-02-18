@@ -1,0 +1,15 @@
+{
+  "app": "app/",
+  "views": "app/views/",
+  "partials": "app/views/partials/",
+  "layouts": "app/views/layouts/",
+  "config": "config/",
+  "dist": "dist/",
+  "node_modules": "node_modules/",
+  "public": "public/",
+  "src": "app/",
+  "ports": {
+    "app": 3000,
+    "test": 8888
+  }
+}
