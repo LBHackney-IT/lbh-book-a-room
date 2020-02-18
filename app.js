@@ -4,6 +4,11 @@ const express = require('express')
 const path = require('path');
 const nunjucks  = require('nunjucks');
 
+const indexRouter = require('./routes/index');
+const roomsRouter = require('./routes/rooms');
+const bookingsRouter = require('./routes/bookings');
+
+
 //----------------------
 // Configuration
 //----------------------
@@ -33,6 +38,15 @@ app.set( 'view engine', 'html' ) ;
 app.use('/public', express.static('public'));
 app.use('/assets', express.static('node_modules/lbh-frontend/lbh/assets'));
 app.use('/assets', express.static('node_modules/govuk-frontend/govuk/assets'));
+
+
+//-------------------------
+// Route Handlers
+//-------------------------
+
+app.use('/', indexRouter);
+app.use('/rooms', roomsRouter);
+app.use('/booking', bookingsRouter);
 
 // export the app
 module.exports = app
