@@ -32,7 +32,7 @@ nunjucks.configure( _templates, {
 app.set('views', path.join(__dirname, 'views'));
 
 // Set Nunjucks as rendering engine for pages with .html suffix
-app.engine( 'html', nunjucks.render ) ;
+app.engine( 'njk', nunjucks.render ) ;
 app.set( 'view engine', 'html' ) ;
 
 app.use('/public', express.static('public'));
