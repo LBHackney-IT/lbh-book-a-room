@@ -7,6 +7,7 @@ const nunjucks  = require('nunjucks');
 const indexRouter = require('./routes/index');
 const roomsRouter = require('./routes/rooms');
 const bookingsRouter = require('./routes/bookings');
+const confirmationRouter = require('./routes/confirmation');
 
 
 //----------------------
@@ -47,6 +48,7 @@ app.use('/assets', express.static('node_modules/govuk-frontend/govuk/assets'));
 app.use('/', indexRouter);
 app.use('/rooms', roomsRouter);
 app.use('/booking', bookingsRouter);
+app.use('/confirmation', confirmationRouter);
 
 // export the app
 module.exports = app
