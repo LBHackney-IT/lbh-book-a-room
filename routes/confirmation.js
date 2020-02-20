@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-const confirmation_controller = require('../controllers/confirmationController.js');
+const confirmationController = require('../controllers/confirmation');
 
 // GET request for the confirmation page.
-router.get('/', confirmation_controller.confirmation);
+router.get('/', confirmationController.confirmation);
 
 module.exports = router;

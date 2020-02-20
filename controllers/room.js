@@ -11,5 +11,5 @@ exports.room_list = function(req, res) {
 exports.room_detail = function(req, res, next) {
     const name = req.params.id;
     
-    res.render('room.html', {roomName: name, title: name});
+    res.render('room.njk', {roomName: name, title: name});
 };

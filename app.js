@@ -9,6 +9,7 @@ const roomsRouter = require('./routes/rooms');
 const bookingsRouter = require('./routes/bookings');
 const confirmationRouter = require('./routes/confirmation');
 
+const errorController = require('./controllers/error');
 
 //----------------------
 // Configuration
@@ -36,7 +37,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.engine( 'njk', nunjucks.render ) ;
 app.set( 'view engine', 'html' ) ;
 
-app.use('/public', express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use('/assets', express.static('node_modules/lbh-frontend/lbh/assets'));
 app.use('/assets', express.static('node_modules/govuk-frontend/govuk/assets'));
 
@@ -45,10 +46,11 @@ app.use('/assets', express.static('node_modules/govuk-frontend/govuk/assets'));
 // Route Handlers
 //-------------------------
 
-app.use('/', indexRouter);
 app.use('/rooms', roomsRouter);
 app.use('/booking', bookingsRouter);
 app.use('/confirmation', confirmationRouter);
+app.use('/', indexRouter);
+app.use(errorController.get404Page);
 
 // export the app
 module.exports = app
