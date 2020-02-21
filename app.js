@@ -1,4 +1,5 @@
 // Express server configuration
+require('dotenv').config(); // this loads the defined variables from .env
 
 const express = require('express')
 const path = require('path');

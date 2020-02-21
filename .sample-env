@@ -1,0 +1,16 @@
+NODE_ENV = "development"
+HOST = "localhost"
+PORT = 5000
+
+ONSCHED_CLIENT_ID =  ""
+ONSCHED_CLIENT_SECRET = ""
+SCOPE = ""
+ONSCHED_IDENTITY_URL = ""
+ONSCHED_API_URL = ""
+COOKIE_KEY =  ""
+
+# CMS
+DB_URL = ""
+  
+
+
