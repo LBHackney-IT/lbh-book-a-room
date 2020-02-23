@@ -19,6 +19,8 @@
     "url": "https://github.com/LBHackney-IT/lbh-book-a-room/issues"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.4",
     "cookie-session": "^1.4.0",
     "debug": "^4.1.1",
     "dotenv": "^8.2.0",
@@ -26,6 +28,7 @@
     "express-rate-limit": "^5.0.0",
     "express-slow-down": "^1.3.1",
     "govuk-frontend": "^3.5.0",
+    "helmet": "^3.21.2",
     "http-errors": "^1.7.3",
     "lbh-frontend": "^1.6.2",
     "morgan": "^1.9.1",
@@ -34,7 +37,6 @@
   "devDependencies": {
     "acorn": "^6.1.1",
     "autoprefixer": "^9.5.1",
-    "body-parser": "^1.18.3",
     "cheerio": "^1.0.0-rc.3",
     "cookie-parser": "^1.4.4",
     "cssnano": "^4.1.10",
