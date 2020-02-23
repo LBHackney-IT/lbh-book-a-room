@@ -1,7 +1,10 @@
 // Express server configuration
 require('dotenv').config(); // this loads the defined variables from .env
 
-const express = require('express')
+const compression = require('compression');
+const helmet = require('helmet');
+
+const express = require('express');
 const path = require('path');
 const nunjucks  = require('nunjucks');
 
@@ -18,6 +21,8 @@ const errorController = require('./controllers/error');
 //----------------------
 
 const app = express();
+app.use(helmet());
+app.use(compression())
 
 const _templates = [
   'views/',
