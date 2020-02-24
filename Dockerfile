@@ -16,9 +16,9 @@ RUN npm install gulp
 
 RUN npm rebuild node-sass
 
-RUN gulp build:dist
+RUN gulp build:dev
 
 
-EXPOSE 3000
+EXPOSE 5000
 
 CMD ["npm", "run", "start"]
