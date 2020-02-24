@@ -141,21 +141,21 @@ workflows:
       - build-and-test:
           filters:
             branches:
-              only: develop
+              only: development
       - build_and_push_image_staging:
           context: spacebank-assume-role-context
           requires:
             - build-and-test
           filters:
             branches:
-              only: develop
+              only: development
       - deploy-to-staging:
           context: spacebank-assume-role-context
           requires:
             - build_and_push_image_staging
           filters:
             branches:
-              only: develop
+              only: development
       - permit-production-release:
           type: approval
           requires:
