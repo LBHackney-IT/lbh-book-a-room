@@ -21,8 +21,9 @@ commands:
       image-tag:
         type: string
     steps:
+      - context: spacebank-assume-role-context
       - checkout
-      - aws_assume_role/assume_role:
+      - aws_assume_role/assume_role:        
           account: $AWS_ACCOUNT
           profile_name: default
           role: 'LBH_Circle_CI_Deployment_Role'
