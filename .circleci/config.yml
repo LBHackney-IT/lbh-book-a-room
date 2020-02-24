@@ -151,11 +151,7 @@ workflows:
             branches:
               only: develop #need this to change to development
   check-and-deploy-production:
-      jobs:
-      - build-and-test:
-          filters:
-            branches:
-              only: master   
+      jobs:  
       - permit-production-release:
           type: approval
           requires:
