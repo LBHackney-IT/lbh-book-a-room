@@ -159,7 +159,7 @@ workflows:
       - permit-production-release:
           type: approval
           requires:
-            - deploy-to-staging
+            - build_and_push_image
           filters:
             branches:
               only: master
