@@ -89,7 +89,6 @@ commands:
   
 jobs:
   build-and-test:
-    context: spacebank-assume-role-context
     executor: docker-python
     steps:
       - checkout
@@ -98,7 +97,6 @@ jobs:
           name: build
           command: docker build .
   deploy-to-staging:
-    context: spacebank-assume-role-context
     docker:
       - image: circleci/python:3.7
     steps:
@@ -107,7 +105,6 @@ jobs:
           service-name: $AWS_SERVICE_STAGING
           image-tag: "$CIRCLE_SHA1"
   deploy-to-production:
-    context: spacebank-assume-role-context
     executor: docker-python
     steps:
       - deploy-env:
@@ -115,7 +112,6 @@ jobs:
           service-name: $AWS_SERVICE_PROD
           image-tag: "$CIRCLE_SHA1"
   build_and_push_image_staging:
-    context: spacebank-assume-role-context
     executor: aws-ecr/default
     steps:
       - build_and_push_image:
@@ -126,7 +122,6 @@ jobs:
           region: AWS_REGION
           tag: "${CIRCLE_SHA1}"
   build_and_push_image_production:
-    context: spacebank-assume-role-context
     executor: aws-ecr/default
     steps:
       - build_and_push_image:
