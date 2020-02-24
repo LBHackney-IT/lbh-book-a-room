@@ -25,3 +25,8 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+ul {
+  @extend .lbh-list;
+  @extend .lbh-list--bullet;
+}
