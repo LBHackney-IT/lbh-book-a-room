@@ -6,22 +6,22 @@ MASTER PARTIAL SCSS IMPORT FILE
 
 ***/
 
-@import "node_modules/lbh-frontend/lbh/all";
+@import 'node_modules/lbh-frontend/lbh/all';
 
 
 // Variables
 // ======================
-@import "variables/_partial-import";
+@import 'variables/_partial-import';
 
 
 // Functions
 // ======================
-//@import "functions/_partial-import";
+//@import 'functions/_partial-import';
 
 
 // Mixins
 // ======================
-//@import "mixins/_partial-import";
+//@import 'mixins/_partial-import';
 
 
 // Structure
@@ -31,33 +31,33 @@ MASTER PARTIAL SCSS IMPORT FILE
 
 // Base styles
 // ======================
-@import "base/_partial-import";
+@import 'base/_partial-import';
 
 
 // Helpers
 // ======================
-@import "helpers/_partial-import";
+@import 'helpers/_partial-import';
 
 
 // Layout
 // ======================
-//@import "layout/_partial-import";
+//@import 'layout/_partial-import';
 
 
 // Elements
 // ======================
-//@import "elements/_partial-import";
+//@import 'elements/_partial-import';
 
 
 // Components
 // ======================
-@import "components/_partial-import";
+@import 'components/_partial-import';
 
 
 // Vendors
 // ======================
-//@extend "vendor/_partial-import";
+//@extend 'vendor/_partial-import';
 
 
 // This partial contains quick fix/hack code to refactor
-@import "shame";
+@import 'shame';
