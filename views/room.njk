@@ -1,13 +1,14 @@
-{% extends "./layouts/default.html" %}
+{% extends "./layouts/default.njk" %}
 {% from "lbh-button/macro.njk" import lbhButton %}
 {% from "lbh-date-input/macro.njk" import lbhDateInput %}
 
 {% block content %}
-    <h1>Book {{ roomName }}</h1>
+    <h1>Book {{ roomData.title.rendered }}</h1>
 
     <img src="/public/assets/dalston-library-education-room-IMG_6934.jpg" alt="{{ roomName }}">
     
     <!-- Room content  -->
+    {{ roomData.content.rendered | safe }}
 
     <hr>
 

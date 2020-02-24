@@ -53,7 +53,7 @@ app.use('/assets', express.static('node_modules/govuk-frontend/govuk/assets'));
 // Route Handlers
 //-------------------------
 
-app.use('/rooms', roomsRouter);
+app.use('/room', roomsRouter);
 app.use('/booking', bookingsRouter);
 app.use('/confirmation', confirmationRouter);
 app.use('/payment', paymentRouter);

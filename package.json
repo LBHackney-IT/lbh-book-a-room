@@ -19,6 +19,7 @@
     "url": "https://github.com/LBHackney-IT/lbh-book-a-room/issues"
   },
   "dependencies": {
+    "async": "^3.1.1",
     "body-parser": "^1.18.3",
     "compression": "^1.7.4",
     "cookie-session": "^1.4.0",
@@ -32,7 +33,8 @@
     "http-errors": "^1.7.3",
     "lbh-frontend": "^1.6.2",
     "morgan": "^1.9.1",
-    "nunjucks": "^3.2.0"
+    "nunjucks": "^3.2.0",
+    "wpapi": "^1.2.1"
   },
   "devDependencies": {
     "acorn": "^6.1.1",
