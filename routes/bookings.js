@@ -1,12 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-const booking_controller = require('../controllers/bookingController.js');
+const bookingController = require('../controllers/booking');
 
 // GET request for new booking form.
-router.get('/', booking_controller.booking);
-
-// POST request for new booking form.
-router.post('/', booking_controller.booking_create_post);
+router.get('/', bookingController.booking);
 
 module.exports = router;

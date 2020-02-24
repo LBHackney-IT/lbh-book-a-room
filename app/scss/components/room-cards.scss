@@ -24,13 +24,15 @@
      }
 
      @media (min-width: 768px) {
-        display: flex;
+        //display: flex;
 
         &__image-container {
+            display: inline-block;
             width: 33%;
         }
 
         &__meta-container {
+            display: inline-block;
             margin: 0 0 0 20px;
         }
 

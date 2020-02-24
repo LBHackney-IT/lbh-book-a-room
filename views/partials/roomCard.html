@@ -1,27 +1,25 @@
 {% macro roomCard(data) %}
 <div class="room-card">
     <div class="room-card__image-container">
-        <img src="/public/assets/dalston-library-education-room-IMG_6934.jpg" alt="{{ data.roomName }}">
+        <img src="" alt="{{ data.title.rendered }}">
     </div>
     <div class="room-card__meta-container">
        <div class="room-meta__room-name lbh-heading-h5">
-           {{ data.roomName }}
+           {{ data.title.rendered }}
        </div> 
        <div class="room-meta__content">
            <div class="lbh-heading-h5">Capacity</div>
                <ul class="lbh-list + lbh-list--bullet mt0">
-                   <li>35 standing</li>
-                   <li>20 sitting</li>
+                   {{ data.acf.capacity | safe }}
                </ul>
            
                <div class="lbh-heading-h5">Prices</div>
                <ul class="lbh-list + lbh-list--bullet mt0">
-                   <li>£20 per hour during library opening hours</li>
-                   <li>£15 per hour for projector hire</li>
+                   {{ data.acf.prices | safe }}
                </ul>
        </div>
    
-         <a href="/rooms/{{ data.roomName }}" role="button" draggable="false" class="govuk-button  lbh-button" data-module="govuk-button">
+         <a href="/room/{{ data.slug }}" role="button" draggable="false" class="govuk-button  lbh-button" data-module="govuk-button">
            View meeting room
          </a>
     </div>

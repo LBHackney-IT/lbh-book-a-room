@@ -1,0 +1,120 @@
+{% extends "./layouts/default.njk" %}
+{% from "lbh-input/macro.njk" import lbhInput %}
+{% from "lbh-character-count/macro.njk" import lbhCharacterCount %}
+{% from "lbh-checkboxes/macro.njk" import lbhCheckboxes %}
+
+{% block content %}
+    <h1>Your booking details</h1>
+
+    {# Top green booking summary block #}
+
+    <h2>Booking details</h2>
+
+    <h3>Hirer details</h3>
+
+    <form action="">
+        {{ lbhInput({
+            "label": {
+                "text": "First name"
+            },
+            "id": "booking-first-name",
+            "name": "booking-first-name",
+            "classes": "govuk-input--width-20"
+        }) }}
+
+        {{ lbhInput({
+            "label": {
+                "text": "Surname"
+            },
+            "id": "booking-last-name",
+            "name": "booking-last-name",
+            "classes": "govuk-input--width-20"
+        }) }}
+
+        {{ lbhInput({
+            "label": {
+                "text": "Name of organisation (optional)"
+            },
+            "id": "booking-organisation-name",
+            "name": "booking-organisation-name",
+            "classes": "govuk-input--width-20"
+        }) }}
+
+        {{ lbhInput({
+            "label": {
+                "text": "Contact number (optional)"
+            },
+            "id": "booking-contact-number",
+            "name": "booking-contact-number",
+            "classes": "govuk-input--width-20"
+        }) }}
+
+        {{ lbhInput({
+            "label": {
+                "text": "Email"
+            },
+            "id": "booking-email",
+            "name": "booking-email",
+            "classes": "govuk-input--width-20"
+        }) }}
+
+            
+        <h3>Event details</h3>
+
+        {{ lbhInput({
+            "label": {
+                "text": "Event name"
+            },
+            "id": "booking-event-name",
+            "name": "test-width-20",
+            "classes": "govuk-input--width-20"
+        }) }}
+
+
+        {{ lbhCharacterCount({
+            "name": "booking-event-details",
+            "id": "booking-event-details",
+            "maxlength": 200,
+            "label": {
+                "text": "Description of event"
+            },
+            "hint": {
+                "text": "Please tell us what you plan to us the room for. This will enable us to check that you meet the Council's policy on room usage without us having to contact you further."
+            }
+        }) }}
+
+        {{ lbhInput({
+            "label": {
+                "text": "Expected number of attendees"
+            },
+            "id": "booking-first-name",
+            "name": "booking-first-name",
+            "classes": "govuk-input--width-5"
+        }) }}
+
+        <div class="govuk-form-group lbh-form-group">
+        
+            <div class="govuk-checkboxes  lbh-checkboxes">
+                <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="t-and-c" name="t-and-c" type="checkbox" value="yes" aria-describedby="t-and-c-error">
+                    <label class="govuk-label govuk-checkboxes__label" for="t-and-c">
+                        I have read the <a href="#" target="_blank">terms and conditions</a>
+                    </label>
+                </div>
+            </div>
+        </div>
+    
+    </form>
+
+    <h3>Your privacy</h3>
+    <p>We only use your data to administer this booking. Data collected in this form will only be
+    accessible by a restricted number of staff from our libaries teams at Hackney Council.</p>
+    
+    <p>We won't share your personal details with anyone else. We will remove your contact data from our systems after six years.</p>
+
+    <p>Find our more about our privacy policy at <a href="#">www.hackney.gov.uk/privacy</a></p>
+
+    <a href="#" role="button" draggable="false" class="govuk-button  lbh-button" data-module="govuk-button">
+        Payment details
+    </a>
+{% endblock %}

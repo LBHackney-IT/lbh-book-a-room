@@ -1,0 +1,49 @@
+{% extends "./layouts/default.njk" %}
+{% from "lbh-button/macro.njk" import lbhButton %}
+{% from "lbh-date-input/macro.njk" import lbhDateInput %}
+
+{% block content %}
+    <h1>Book {{ roomData.title.rendered }}</h1>
+
+    <img src="/public/assets/dalston-library-education-room-IMG_6934.jpg" alt="{{ roomName }}">
+    
+    <!-- Room content  -->
+    {{ roomData.content.rendered | safe }}
+
+    <hr>
+
+    <div class="lbh-heading-h2">Check room availability</div>
+    
+    <div class="lbh-heading-h4">Enter the date</div>
+
+    {{ lbhDateInput({
+        "id": "bookingdate",
+        "namePrefix": "bookingdate",
+        "fieldset": {
+          "legend": {
+            "text": "Date you'd like to book this room"
+          }
+        },
+        "items": [
+          {
+            "name": "day",
+            "classes": "govuk-input--width-2"
+          },
+          {
+            "name": "month",
+            "classes": "govuk-input--width-2"
+          },
+          {
+            "name": "year",
+            "classes": "govuk-input--width-4"
+          }
+        ]
+      }) }}
+
+    <a href="#" role="button" draggable="false" class="govuk-button  lbh-button" data-module="govuk-button">
+        Show available times
+    </a>
+
+    <!-- Footer text -->
+ 
+    {% endblock %}

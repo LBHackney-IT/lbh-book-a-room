@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/', function(req, res){
-  res.render('index.html', {title: 'Hackney Book A Room | Home'});    
-});
+const indexController = require('../controllers/index');
+
+// GET request for new booking form.
+router.get('/', indexController.index);
 
 module.exports = router;
