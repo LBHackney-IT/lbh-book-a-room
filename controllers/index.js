@@ -1,7 +1,17 @@
+const Room = require('../models/room');
 
-// Show inde page.
+// Show index page.
 exports.index = function(req, res) {
-    const name = req.params.id;
 
-    res.render('index.njk', {title: 'Hackney Book A Room | Home'}); 
+    const newPromise = Room.fetchAllRooms();
+
+    newPromise
+        .then(function (data) {
+            res.render('index.njk', {title: 'Home', roomCards: data});
+        })
+        .catch(function( err ) {
+            res.status(404);
+            res.redirect('404.njk');
+        });
+        
 };
