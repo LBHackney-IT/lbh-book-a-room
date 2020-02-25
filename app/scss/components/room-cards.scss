@@ -4,11 +4,6 @@
     border: 1px solid #b2b2b2;
     border-radius: 4px;
     padding: 12px;
-    
-
-    &__image-container {
-       
-    }
 
     &__meta-container {
         margin: 20px 0 0;
@@ -24,7 +19,6 @@
      }
 
      @media (min-width: 768px) {
-        //display: flex;
 
         &__image-container {
             display: inline-block;
@@ -34,6 +28,7 @@
         &__meta-container {
             display: inline-block;
             margin: 0 0 0 20px;
+            vertical-align: top;
         }
 
      }
