@@ -6,7 +6,7 @@
     padding: 12px;
 
     &__meta-container {
-        margin: 20px 0 0;
+        padding: 20px 0 0;
     }
 
     .room-meta__content {
@@ -27,8 +27,10 @@
 
         &__meta-container {
             display: inline-block;
-            margin: 0 0 0 20px;
+            padding: 0 0 0 20px;
+            margin: 0;
             vertical-align: top;
+            width: 66%;
         }
 
      }
