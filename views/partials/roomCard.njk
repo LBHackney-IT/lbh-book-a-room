@@ -1,7 +1,7 @@
 {% macro roomCard(data) %}
 <div class="room-card">
     <div class="room-card__image-container">
-        <img src="/assets/dalston-library-education-room1.jpg" alt="{{ data.title.rendered }}">
+        <img src="{{ data.acf.main_image.sizes.thumbnail }}" alt="{{ data.acf.main_image.caption }}">
     </div>
     <div class="room-card__meta-container">
        <div class="room-meta__room-name lbh-heading-h5">
