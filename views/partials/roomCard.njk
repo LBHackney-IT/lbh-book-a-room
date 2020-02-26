@@ -8,15 +8,24 @@
            {{ data.title.rendered }}
        </div> 
        <div class="room-meta__content">
-           <div class="lbh-heading-h5">Capacity</div>
-               <ul class="lbh-list + lbh-list--bullet mt0">
-                   {{ data.acf.capacity | safe }}
-               </ul>
-           
-               <div class="lbh-heading-h5">Prices</div>
-               <ul class="lbh-list + lbh-list--bullet mt0">
-                   {{ data.acf.prices | safe }}
-               </ul>
+        {% if data.acf.capacity | length %}
+        <div class="lbh-heading-h5">Capacity</div>
+        <ul class="lbh-list + lbh-list--bullet mt0">
+            {% for item in data.acf.capacity %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        {% if data.acf.prices | length %}
+        <div class="lbh-heading-h5">Prices</div>
+        <ul class="lbh-list + lbh-list--bullet mt0">
+            {% for item in data.acf.prices %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+            
        </div>
    
          <a href="/room/{{ data.slug }}" role="button" draggable="false" class="govuk-button  lbh-button" data-module="govuk-button">
