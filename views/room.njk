@@ -7,43 +7,52 @@
 
     <img src="/assets/dalston-library-education-room1.jpg" alt="{{ roomName }}">
     
-    <!-- Room content  -->
+    {# Room Content #}
     {{ roomData.content.rendered | safe }}
 
-    <hr>
+    {# Check Availability #}
+    <section>
+      <hr>
 
-    <div class="lbh-heading-h2">Check room availability</div>
+      <div class="lbh-heading-h2">Check room availability</div>
+      
+      <div class="lbh-heading-h4">Enter the date</div>
+
+      {{ lbhDateInput({
+          "id": "bookingdate",
+          "namePrefix": "bookingdate",
+          "fieldset": {
+            "legend": {
+              "text": "Date you'd like to book this room"
+            }
+          },
+          "items": [
+            {
+              "name": "day",
+              "classes": "govuk-input--width-2"
+            },
+            {
+              "name": "month",
+              "classes": "govuk-input--width-2"
+            },
+            {
+              "name": "year",
+              "classes": "govuk-input--width-4"
+            }
+          ]
+        }) }}
+
+      <a href="#" role="button" draggable="false" class="govuk-button  lbh-button" data-module="govuk-button">
+          Show available times
+      </a>
+    </section/>
+
     
-    <div class="lbh-heading-h4">Enter the date</div>
+    {# Page Footer Text #}
+    <section>
+      <hr>
 
-    {{ lbhDateInput({
-        "id": "bookingdate",
-        "namePrefix": "bookingdate",
-        "fieldset": {
-          "legend": {
-            "text": "Date you'd like to book this room"
-          }
-        },
-        "items": [
-          {
-            "name": "day",
-            "classes": "govuk-input--width-2"
-          },
-          {
-            "name": "month",
-            "classes": "govuk-input--width-2"
-          },
-          {
-            "name": "year",
-            "classes": "govuk-input--width-4"
-          }
-        ]
-      }) }}
-
-    <a href="#" role="button" draggable="false" class="govuk-button  lbh-button" data-module="govuk-button">
-        Show available times
-    </a>
-
-    <!-- Footer text -->
+      {{ roomData.acf.page_footer_text | safe }}
+    </section>
  
     {% endblock %}
