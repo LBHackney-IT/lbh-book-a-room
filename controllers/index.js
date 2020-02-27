@@ -11,7 +11,7 @@ exports.index = function(req, res) {
         })
         .catch(function( err ) {
             res.status(404);
-            res.redirect('404.njk');
+            res.redirect('/404');
         });
         
 };
