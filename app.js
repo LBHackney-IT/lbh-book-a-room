@@ -57,7 +57,13 @@ app.use('/booking', bookingsRouter);
 app.use('/confirmation', confirmationRouter);
 app.use('/', indexRouter);
 
-app.use(errorController.get404Page);
+app.use('/500', errorController.get500);
+
+app.use(errorController.get404);
+
+app.use((error, req, res, next) => {
+  res.redirect('/500');
+})
 
 // export the app
 module.exports = app
