@@ -12,17 +12,18 @@ exports.room_detail_get = function(req, res, next) {
     const newPromise = Room.fetchRoomDetail(slug);
 
     newPromise
-        .then(function (data) {
+        .then(data => {
             // handle data
-            if (data) {
-                res.render('room.njk', {title: data.title.rendered, roomData: data});
-            } else {
+            if (!data) {
                 res.status(404);
-                res.redirect('/404');
+                return res.redirect('/404');
             }
+               
+            res.render('room.njk', {title: data.title.rendered, roomData: data});
         })
-        .catch(function( err ) {
-            res.status(404);
-            res.redirect('/404');
+        .catch( err => {
+            const error = new Error(err);
+
+            return next(error);
         });
 };

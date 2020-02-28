@@ -7,11 +7,17 @@ exports.index = function(req, res) {
 
     newPromise
         .then(function (data) {
+            if (!data) {
+                res.status(404);
+                return res.redirect('/404');
+            }
+
             res.render('index.njk', {title: 'Home', roomCards: data});
         })
         .catch(function( err ) {
-            res.status(404);
-            res.redirect('/404');
+            const error = new Error(err);
+
+            return next(error);
         });
         
 };
