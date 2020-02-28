@@ -1,27 +1,22 @@
 {% extends "./layouts/default.njk" %}
 
+{% from "partials/confirmation__payment-success.njk" import paymentSuccessContent %}
+{% from "partials/confirmation__payment-cancelled.njk" import paymentCancelledContent %}
+{% from "partials/confirmation__payment-failed.njk" import paymentFailedContent %}
+{% from "partials/confirmation__payment-verification-failed.njk" import paymentVerificationFailedContent %}
+
 {% block content %}
-    <h1>Reservation cofirmation</h1>
-
-    {# Top green message block #}
-
-    <p>You room booking has now been reserved.</p>
-
-    <h3>What happens next?</h3>
-
-    <ul class="lbh-list + lbh-list--bullet">
-        <li>You will receive a reservation confirmation email containing a copy of
-        the detais that you have provided to us</li>
-        <li>We will review your reservation and cofirm your booking within 48 hours</li>
-        <li>When your booking is confirmed we will provide you with a link to pay online</li>
-    </ul>
-
-    <p>If you would like to amend or cancel your reservation, or have any queries realting to your
-    reservation, please email <a href="mailto:library.roombooking@hackney.gov.uk"></a></p>
- 
-    <p><a href="#">What did you think of this service?</a> It only takes 30 seconds</p>
-
-    <a href="#" role="button" draggable="false" class="govuk-button  lbh-button" data-module="govuk-button">
-        Hackney Council homepage
-    </a>
+    {% if isPaymentSuccess %}
+        {{ paymentSuccessContent(data) }}
+    {% else %}
+        {% if isPaymentCancelled %}
+            {{ paymentCancelledContent(data) }}
+        {% elseif isPaymentFailed %}
+            {{ paymentFailedContent(data) }}
+        {% elseif isVerificationFailed %}
+            {{ paymentVerificationFailedContent(data) }}
+        {% else %}
+            <h1>There was an error with your payment</h1>
+        {% endif %}
+    {% endif %}
 {% endblock %}

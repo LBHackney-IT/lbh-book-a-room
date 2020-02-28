@@ -12,7 +12,6 @@ const indexRouter = require('./routes/index');
 const roomsRouter = require('./routes/rooms');
 const bookingsRouter = require('./routes/bookings');
 const confirmationRouter = require('./routes/confirmation');
-const paymentRouter = require('./routes/payment');
 
 const errorController = require('./controllers/error');
 
@@ -56,7 +55,6 @@ app.use('/assets', express.static('node_modules/govuk-frontend/govuk/assets'));
 app.use('/room', roomsRouter);
 app.use('/booking', bookingsRouter);
 app.use('/confirmation', confirmationRouter);
-app.use('/payment', paymentRouter);
 app.use('/', indexRouter);
 
 app.use(errorController.get404Page);
