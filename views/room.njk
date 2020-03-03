@@ -5,7 +5,14 @@
 {% block content %}
     <h1>Book {{ roomData.title.rendered }}</h1>
 
-    <img src="/assets/dalston-library-education-room1.jpg" alt="{{ roomName }}">
+    <section class="slider js-slider">
+      {% for image in roomData.acf.image_gallery %}
+        <figure class="slide-image-figure">
+          <img src="{{ image.sizes.large }}" alt="{{ image.alt }}">
+          <figcaption class="slide-image-caption">{{ image.caption }}</figcaption>
+        </figure>
+      {% endfor %}
+    </section>
     
     {# Room Content #}
     {{ roomData.content.rendered | safe }}
