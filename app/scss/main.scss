@@ -14,6 +14,7 @@ MASTER PARTIAL SCSS IMPORT FILE
 @import 'variables/_partial-import';
 
 
+
 // Functions
 // ======================
 //@import 'functions/_partial-import';
@@ -24,8 +25,9 @@ MASTER PARTIAL SCSS IMPORT FILE
 //@import 'mixins/_partial-import';
 
 
-// Structure
+// Vendors
 // ======================
+@import 'vendor/_partial-import';
 
 
 
@@ -53,10 +55,6 @@ MASTER PARTIAL SCSS IMPORT FILE
 // ======================
 @import 'components/_partial-import';
 
-
-// Vendors
-// ======================
-//@extend 'vendor/_partial-import';
 
 
 // This partial contains quick fix/hack code to refactor

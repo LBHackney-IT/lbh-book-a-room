@@ -1,0 +1,38 @@
+// Set some slick slider variables
+$slick-font-path: "./assets/fonts/" !default;
+$slick-loader-path: "./assets/" !default;
+$slick-dot-size: 20px !default;
+
+// Import slick slider styles
+@import 'node_modules/slick-carousel/slick/slick.scss';
+@import 'node_modules/slick-carousel/slick/slick-theme.scss';
+
+// Adjust some slick slider styles
+.slick-slider {
+    padding-left: 0;
+    padding-right: 0;
+
+    .slick-slide {
+        margin-top: 0;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+        font-size: 40px;
+    }
+
+    .slick-prev,
+    .slick-next {
+        width: 40px;
+        height: 40px;
+        z-index: 100;
+    }
+
+    .slick-prev {
+        left: 30px;
+    }
+
+    .slick-next {
+        right: 30px;
+    }
+}
