@@ -23,6 +23,12 @@
             {% for item in data.acf.prices %}
                 <li>{{ item }}</li>
             {% endfor %}
+
+            {% if data.acf.additional_resources | length %}
+                {% for item in data.acf.additional_resources %}
+                    <li>£{{ item.resource_fee }} {{ item.resource_name }}</li>
+                {% endfor %}
+            {% endif %}
         </ul>
         {% endif %}
             
