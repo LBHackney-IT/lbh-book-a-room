@@ -1,14 +1,17 @@
 {% extends "./layouts/default.njk" %}
+{% from "lbh-button/macro.njk" import lbhButton %}
 
 {% block content %}
     <h1 class="govuk-heading-xl">Page not found</h1>
+    <p class="govuk-body">If you typed the web address, check it is correct.</p>
+    <p class="govuk-body">If you pasted the web address, check you copied the entire address.</p>
     <p class="govuk-body">
-        If you typed the web address, check it is correct.
+        Please contact <a href="mailto:library.roombooking@hackney.gov.uk">library.roombooking@hackney.gov.uk</a> if you would like to book a room. 
     </p>
-    <p class="govuk-body">
-        If you pasted the web address, check you copied the entire address.
-    </p>
-    <p class="govuk-body">
-        Please contact [insert link here] if you would like to book a room, or form more general information visit the <a href="hackney.gov.uk">Hackney homepage.</a>. 
-    </p>
+
+    {{ lbhButton({
+        "text": "Hackney Council homepage",
+        "href": "https://hackney.gov.uk/"
+    }) }}
+
 {% endblock %}
