@@ -1,0 +1,23 @@
+.panel {
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    color: $lbh-white;
+    background: $lbh-dark-green;
+    padding: 30px;
+    margin-bottom: 30px;
+
+    &__title {
+        font-weight: 700;
+        color: $lbh-white;
+        line-height: 2;
+    }
+
+    &__body {
+
+    }
+
+
+}

@@ -1,25 +1,34 @@
 {% macro paymentSuccessContent(data) %}
-<h1>Your payment was successfull.</h1>
+<h1>Booking confirmation.</h1>
 
-{# Top green message block #}
+<div class="panel text-align-center">
+    <h2 class="panel__title">Thank you.</h2>
+    <h2 class="panel__title">Your booking is now complete.</h2>
 
-<p>You room booking has now been completed.</p>
+    <p class="panel__text">
+        Your reference number is
+    </p>
+</div>
 
-<h3>What happens next?</h3>
+<h3>Booking summary</h3>
+<div>
+    Location: <br>
+    Date: <br>
+    Time: 
+</div>
 
-<ul class="lbh-list + lbh-list--bullet">
-    <li>You will receive a reservation confirmation email containing a copy of
-    the detais that you have provided to us</li>
-    <li>We will review your reservation and cofirm your booking within 48 hours</li>
-    <li>When your booking is confirmed we will provide you with a link to pay online</li>
-</ul>
 
-<p>If you would like to amend or cancel your reservation, or have any queries relating to your
-reservation, please email <a href="mailto:library.roombooking@hackney.gov.uk"></a></p>
+
+<h3>Payment summary</h3>
+<div>
+    Room cost: <br>
+    Total: 
+</div>
+
+<p>If you would like to amend or cancel your booking, or have any queries relating to your
+booking, please email <a href="mailto:library.roombooking@hackney.gov.uk">library.roombooking@hackney.gov.uk</a></p>
+
+<p>Alternatively, for more services visit the <a href="https://hackney.gov.uk">Hackney Council homepage</a></p>
 
 <p><a href="#">What did you think of this service?</a> It only takes 30 seconds</p>
-
-<a href="#" role="button" draggable="false" class="govuk-button  lbh-button" data-module="govuk-button">
-    Hackney Council homepage
-</a>
 {% endmacro %}
