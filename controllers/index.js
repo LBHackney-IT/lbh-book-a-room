@@ -3,7 +3,7 @@ const Room = require('../models/room');
 // Show index page.
 module.exports = {
 
-    index: (req, res) => {
+    index: (req, res, next) => {
 
         const newPromise = Room.fetchAllRooms();
 
