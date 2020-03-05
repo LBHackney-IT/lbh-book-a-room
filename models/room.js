@@ -1,3 +1,4 @@
+const config = require('../config');
 
 module.exports = {
    
@@ -6,11 +7,12 @@ module.exports = {
      */
     fetchAllRooms: function() {
         return new Promise((resolve, reject) => {
+            
             const WPAPI = require( 'wpapi' );
-            const namespace = process.env.DB_NAMESPACE; // use the WP API namespace
-            const route = process.env.DB_ROOM_ROUTE;
+            const namespace = config.db.db_namespace; // use the WP API namespace
+            const route = config.db.db_room_route;
 
-            const wp = new WPAPI({ endpoint: process.env.DB_URL }); 
+            const wp = new WPAPI({ endpoint: config.db.db_url }); 
             wp.rooms = wp.registerRoute(namespace, route);
 
             wp.rooms()
@@ -20,7 +22,6 @@ module.exports = {
                 .catch(function( err ) {
                     reject (err);
                 });
-
         })
     },
 
@@ -33,10 +34,10 @@ module.exports = {
 
         return new Promise((resolve, reject) => {
             const WPAPI = require( 'wpapi' );
-            const namespace = process.env.DB_NAMESPACE; // use the WP API namespace
-            const route = process.env.DB_ROOM_ROUTE;
+            const namespace = config.db.db_namespace; // use the WP API namespace
+            const route = config.db.db_room_route;
 
-            const wp = new WPAPI({ endpoint: process.env.DB_URL }); 
+            const wp = new WPAPI({ endpoint: config.db.db_url }); 
             wp.rooms = wp.registerRoute(namespace, route);
 
             wp.rooms().slug(roomSlug)
@@ -46,8 +47,6 @@ module.exports = {
                 .catch(function( err ) {
                     reject (err);
                 });
-
         })
-
     }
 }
