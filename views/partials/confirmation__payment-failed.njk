@@ -1,11 +1,15 @@
 {% macro paymentFailedContent(data) %}
-<h1 class="govuk-heading-xl">Payment failed</h1>
-<h2 class="govuk-heading-l">Sorry, we can’t process your payment</h2>
+<h1 class="govuk-heading-xl">Unable to process payment</h1>
+
+<div class="panel">
+    <h2 class="panel__title">Sorry, <br> we can’t process your payment</h2>
+</div>
 
 <p class="govuk-body">There is a problem with your transaction and we are unable to process your payment. Please contact your bank.</p>
 
-<p class="govuk-body">Try again to make a booking once the issue has been resolved, alternatively try again using a different card.
+<p class="govuk-body">Try again to make a booking once the issue has been resolved, or try again using a different card.
 </p>
-<p class="govuk-body">Return to the <a href="/">Book a room homepage.</a>
-    </p>
+
+<p>Alternatively, for more services visit the <a href="https://hackney.gov.uk">Hackney Council homepage</a></p>
+
 {% endmacro %}
