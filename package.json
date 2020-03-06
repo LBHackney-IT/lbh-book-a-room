@@ -4,9 +4,9 @@
   "description": "LBH Boook a room project",
   "main": "index.js",
   "scripts": {
-    "start": "node ./bin/www",
-    "devstart": "nodemon ./bin/www",
-    "server": "npm run devstart"
+    "start": "node app",
+    "devstart": "nodemon app",
+    "server": "npm run start"
   },
   "repository": {
     "type": "git",
