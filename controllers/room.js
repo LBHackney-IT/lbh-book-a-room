@@ -14,7 +14,6 @@ module.exports = {
         
         try {
             const data = await RoomService.fetchRoomDetail(slug);
-            console.log(data);
 
             if (!data) {
                 res.status(404);
