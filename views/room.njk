@@ -3,7 +3,7 @@
 {% from "lbh-date-input/macro.njk" import lbhDateInput %}
 
 {% block content %}
-    <h1>Book {{ roomData.title.rendered }}</h1>
+    <h1 class="lbh-heading-h1">Book {{ roomData.title.rendered }}</h1>
 
     <section class="slider js-slider">
       {% for image in roomData.acf.image_gallery %}
@@ -21,9 +21,9 @@
     <section>
       <hr>
 
-      <div class="lbh-heading-h2">Check room availability</div>
+      <h2 class="lbh-heading-h2">Check room availability</h2>
       
-      <div class="lbh-heading-h4">Enter the date</div>
+      <h4 class="lbh-heading-h4">Enter the date</h4>
 
       {{ lbhDateInput({
           "id": "bookingdate",
@@ -49,7 +49,7 @@
           ]
         }) }}
 
-      <a href="#" role="button" draggable="false" class="govuk-button  lbh-button" data-module="govuk-button">
+      <a href="#" role="button" draggable="false" class="govuk-button lbh-button" data-module="govuk-button">
           Show available times
       </a>
     </section/>
