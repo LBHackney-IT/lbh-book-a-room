@@ -19,7 +19,7 @@
 
         {% if data.acf.prices | length %}
         <div class="lbh-heading-h5">Prices</div>
-        <ul class="lbh-list + lbh-list--bullet mt0">
+        <ul class="lbh-list lbh-list--bullet mt0">
             {% for item in data.acf.prices %}
                 <li>{{ item }}</li>
             {% endfor %}
@@ -34,7 +34,7 @@
             
        </div>
    
-         <a href="/room/{{ data.slug }}" role="button" draggable="false" class="govuk-button  lbh-button" data-module="govuk-button">
+         <a href="/room/{{ data.slug }}" role="button" draggable="false" class="govuk-button lbh-button" data-module="govuk-button">
            View meeting room
          </a>
     </div>

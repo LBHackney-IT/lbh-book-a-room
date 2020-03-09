@@ -3,13 +3,13 @@
 {% from "partials/roomCard.njk" import roomCard %}
 
 {% block content %}
-   <h1>Meeting rooms in Hackney libraries</h1>
+   <h1 class="lbh-heading-h1">Meeting rooms in Hackney libraries</h1>
 
-   <p>We have affordable meting rooms for hire in all eight Hackney libraries which are located in Dalston, Shoredith, Stoke Newignton, Homerton, Clapton, Woodberry Down, Stamford Hill and net to Hackney Town Hall.</p>
-   <p>Whether you're looking for a small meeting room to hold a workshop, a medium sized space to host a trustee meeting, or a large gallery room to hold an exhibition, we've got you covered.</p>
+   <p class="lbh-body-m">We have affordable meting rooms for hire in all eight Hackney libraries which are located in Dalston, Shoredith, Stoke Newignton, Homerton, Clapton, Woodberry Down, Stamford Hill and net to Hackney Town Hall.</p>
+   <p class="lbh-body-m">Whether you're looking for a small meeting room to hold a workshop, a medium sized space to host a trustee meeting, or a large gallery room to hold an exhibition, we've got you covered.</p>
 
    <section>
-      <h2>Available meeting rooms in Hackney libraries</h2>
+      <h2 class="lbh-heading-h2">Available meeting rooms in Hackney libraries</h2>
 
       {% for item in roomCards %}
          {{ roomCard(item) }}
@@ -18,7 +18,7 @@
    
    {# Page Footer Text #}
    <section class="pt20">
-      <p>Visit our <a href="https://hackney.gov.uk/libraries">Hackney libraries</a> information page to find out more about the huge
+      <p class="lbh-body-m">Visit our <a class="lbh-link" href="https://hackney.gov.uk/libraries">Hackney libraries</a> information page to find out more about the huge
       range of services and free events that libraries across the borough provide.
       </p>
    </section>

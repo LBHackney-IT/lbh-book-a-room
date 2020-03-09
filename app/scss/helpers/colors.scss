@@ -1,8 +1,8 @@
 .color-white {
-    color: $lbh-white;
+    color: lbh-colour("lbh-text-white");
 }
 
 
 .bgc-primary {
-    background-color: $lbh-dark-green;
+    background-color: lbh-colour("lbh-a01");
 }

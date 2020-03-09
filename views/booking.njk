@@ -4,11 +4,11 @@
 {% from "lbh-checkboxes/macro.njk" import lbhCheckboxes %}
 
 {% block content %}
-    <h1>Your booking details</h1>
+    <h1 class="lbh-heading-h1">Your booking details</h1>
 
     <section>
         <div class="panel">
-            <h2 class="color-white">Summary of your room booking</h2>
+            <h2 class="lbh-heading-h2 color-white">Summary of your room booking</h2>
 
             <div>Where <br>
             Location:
@@ -30,9 +30,9 @@
     
     </section>
 
-    <h2>Booking details</h2>
+    <h2 class="lbh-heading-h2">Booking details</h2>
 
-    <h3>Hirer details</h3>
+    <h3 class="lbh-heading-h3">Hirer details</h3>
 
     <form action="">
         {{ lbhInput({
@@ -81,7 +81,7 @@
         }) }}
 
             
-        <h3>Event details</h3>
+        <h3 class="lbh-heading-h3">Event details</h3>
 
         {{ lbhInput({
             "label": {
@@ -120,7 +120,7 @@
                 <div class="govuk-checkboxes__item">
                     <input class="govuk-checkboxes__input" id="t-and-c" name="t-and-c" type="checkbox" value="yes" aria-describedby="t-and-c-error">
                     <label class="govuk-label govuk-checkboxes__label" for="t-and-c">
-                        I have read the <a href="#" target="_blank">terms and conditions</a>
+                        I have read the <a class="lbh-link" href="#" target="_blank">terms and conditions</a>
                     </label>
                 </div>
             </div>
@@ -128,15 +128,15 @@
     
     </form>
 
-    <h3>Your privacy</h3>
-    <p>We only use your data to administer this booking. Data collected in this form will only be
+    <h3 class="lbh-heading-h3">Your privacy</h3>
+    <p class="lbh-body-m">We only use your data to administer this booking. Data collected in this form will only be
     accessible by a restricted number of staff from our libaries teams at Hackney Council.</p>
     
-    <p>We won't share your personal details with anyone else. We will remove your contact data from our systems after six years.</p>
+    <p class="lbh-body-m">We won't share your personal details with anyone else. We will remove your contact data from our systems after six years.</p>
 
-    <p>Find our more about our privacy policy at <a href="#">www.hackney.gov.uk/privacy</a></p>
+    <p class="lbh-body-m">Find our more about our privacy policy at <a href="#">www.hackney.gov.uk/privacy</a></p>
 
-    <a href="#" role="button" draggable="false" class="govuk-button  lbh-button" data-module="govuk-button">
+    <a href="#" role="button" draggable="false" class="govuk-button lbh-button" data-module="govuk-button">
         Payment details
     </a>
 {% endblock %}

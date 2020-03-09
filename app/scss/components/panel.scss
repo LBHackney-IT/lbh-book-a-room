@@ -4,20 +4,13 @@
     flex-direction: column;
     justify-content: center;
     box-sizing: border-box;
-    color: $lbh-white;
-    background: $lbh-dark-green;
+    color: lbh-colour("lbh-text-white");
+    background: lbh-colour("lbh-a01");
     padding: 30px;
     margin-bottom: 30px;
 
     &__title {
         font-weight: 700;
-        color: $lbh-white;
-        line-height: 2;
+        color: lbh-colour("lbh-text-white");
     }
-
-    &__body {
-
-    }
-
-
 }
