@@ -1,0 +1,7 @@
+{% macro Error500Content(error) %}
+<h1 class="lbh-heading-h1">{{ error.status }}</h1>
+<p class="lbh-body-m">Please try again later.</p>
+<p class="lbh-body-m">Alternatively you can contact the library room booking team by emailing <a class="lbh-link" href="mailto:library.roombooking@hackney.gov.uk">library.roombooking@hackney.gov.uk</a>, 
+or for more general information visit the <a class="lbh-link" href="https://hackney.gov.uk/">Hackney homepage.</a>.
+</p>
+{% endmacro %}
