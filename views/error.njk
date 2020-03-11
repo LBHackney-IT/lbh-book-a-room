@@ -1,0 +1,12 @@
+{% extends "./layouts/default.njk" %}
+
+{% from "partials/error__404.njk" import Error404Content %}
+{% from "partials/error__500.njk" import Error500Content %}
+
+{% block content %}
+    {% if error.is404 %}
+        {{ Error404Content(error) }}
+    {% else %}
+        {{ Error500Content(error) }}
+    {% endif %}
+{% endblock %}

@@ -21,5 +21,25 @@ module.exports = {
         db_url: process.env.DB_URL,
         db_namespace: process.env.DB_NAMESPACE,
         db_room_route: process.env.DB_ROOM_ROUTE
+    },
+
+    winston: {
+        file: {
+            file_level: process.env.WINSTON_FILE_LEVEL,
+            filename: process.env.WINSTON_FILE_FILENAME,
+            dirname: process.env.WINSTON_FILE_DIRNAME,
+            datepattern: process.env.WINSTON_FILE_DATEPATTERN,
+            handleExceptions: process.env.WINSTON_FILE_HANDLE_EXCEPTIONS,
+            json: process.env.WINSTON_FILE_JSON,
+            maxsize: process.env.WINSTON_FILE_MAX_SIZE,
+            maxFiles: process.env.WINSTON_FILE_MAX_FILES,
+            colorize: process.env.WINSTON_FILE_COLORIZE
+        },
+        console: {
+            file_level: process.env.WINSTON_CONSOLE_LEVEL,
+            handleExceptions: process.env.WINSTON_CONSOLE_HANDLE_EXCEPTIONS,
+            json: process.env.WINSTON_CONSOLE_JSON,
+            colorize: process.env.WINSTON_CONSOLE_COLORIZE
+        }
     }
 }

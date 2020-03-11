@@ -3,13 +3,15 @@ const compression = require('compression');
 const helmet = require('helmet');
 const path = require('path');
 const nunjucks  = require('nunjucks');
+const morgan = require('morgan');
 
 const indexRouter = require('../routes/index');
 const roomsRouter = require('../routes/rooms');
 const bookingsRouter = require('../routes/bookings');
 const confirmationRouter = require('../routes/confirmation');
 
-const errorController = require('../controllers/error');
+const logger = require('../middleware/logger');
+const { handleError } = require('../helpers/error');
 
 module.exports = {
     init: async ( app ) => {
@@ -17,9 +19,12 @@ module.exports = {
         // Configuration
         //----------------------
 
-
         app.use(helmet());
-        app.use(compression())
+        app.use(compression());
+        app.use(morgan(
+            ':method :url :status :response-time ms', 
+            { stream: logger.stream }
+        ));
 
         const _templates = [
             'views/',
@@ -55,13 +60,23 @@ module.exports = {
         app.use('/confirmation', confirmationRouter);
         app.use('/', indexRouter);
 
-        app.use('/500', errorController.get500);
 
-        app.use(errorController.get404);
+        //-------------------------
+        // Error Handlers
+        //-------------------------
 
-        app.use((error, req, res, next) => {
-            console.log(error);
-            res.redirect('/500');
-        })
+        app.use((req, res, next) => {
+            const error = new Error();
+
+            error.message = "Page not found";
+            error.statusCode = 404;
+            error.is404 = true;
+
+            next(error);
+        });
+
+        app.use((err, req, res, next) => {
+            handleError(err, req, res);
+          });
     }
 }

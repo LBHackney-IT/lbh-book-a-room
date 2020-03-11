@@ -1,11 +1,11 @@
-
-// Error Controller
 module.exports ={
-    get404: (req, res) =>{
-        res.status(404).render('404.njk')
+    get404Page: (req, res) => {
+        res.status(404);
+        return res.render('404.njk');
     },
 
-    get500: (req, res) => {
-        res.status(500).render('500.njk')
+    getErrorPage: (error, req, res, next) => {
+        res.status(error.status || 500);
+        return res.render('500.njk');
     }
 }
