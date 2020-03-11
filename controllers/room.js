@@ -1,4 +1,5 @@
 const RoomService = require('../services/RoomService');
+const { ErrorHandler } = require('../helpers/error');
 
 module.exports = {
 
@@ -16,16 +17,13 @@ module.exports = {
             const data = await RoomService.fetchRoomDetail(slug);
 
             if (!data) {
-                res.status(404);
-                return res.redirect('/404');
+                throw new ErrorHandler(404, `No data found for ${slug}`);
             }
 
             res.render('room.njk', {title: data.title.rendered, roomData: data});
 
-        } catch (err) {
-            const error = new Error(err);
-
-            return next(error);
+        } catch (error) {
+            next(error);
         }
     }
 }
