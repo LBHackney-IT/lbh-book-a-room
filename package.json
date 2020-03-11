@@ -35,6 +35,8 @@
     "lbh-frontend": "^1.6.2",
     "morgan": "^1.9.1",
     "nunjucks": "^3.2.0",
+    "winston": "^3.2.1",
+    "winston-daily-rotate-file": "^4.4.2",
     "wpapi": "^1.2.1"
   },
   "devDependencies": {
@@ -46,7 +48,6 @@
     "del": "^5.1.0",
     "eslint": "^6.1.0",
     "express": "^4.16.4",
-    "express-validator": "^5.3.1",
     "front-matter": "^3.0.2",
     "glob": "^7.1.4",
     "gulp": "^4.0.2",
