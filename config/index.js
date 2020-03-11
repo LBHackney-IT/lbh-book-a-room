@@ -41,5 +41,9 @@ module.exports = {
             json: process.env.WINSTON_CONSOLE_JSON,
             colorize: process.env.WINSTON_CONSOLE_COLORIZE
         }
+    },
+
+    payment: {
+        fundCode: process.env.PAYMENT_FUND_CODE
     }
 }
