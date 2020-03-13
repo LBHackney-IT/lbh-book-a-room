@@ -45,6 +45,7 @@ module.exports = {
     },
 
     payment: {
-        fundCode: process.env.PAYMENT_FUND_CODE
+        URLBase: process.env.PAYMENT_URL_BASE,
+        catalogueId: process.env.PAYMENT_CATALOGUE_CODE
     }
 }
