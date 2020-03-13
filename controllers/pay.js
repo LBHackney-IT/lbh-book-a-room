@@ -21,11 +21,11 @@ module.exports = {
                 accountReference: req.session.booking.accountReference,
                 paymentAmount: req.session.booking.paymentAmount,
                 paymentNarrative: req.session.booking.paymentNarrative,
-                returnUrl: `${req.hostname}/confirmation?callingAppTranReference=${callingAppTranReference}`
+                returnUrl: `${config.protocol}${req.hostname}/confirmation?callingAppTranReference=${callingAppTranReference}`
             }
 
             const paymentURL = generatePaymentURL(paymentURLBase, paymentURLParams);
-            
+         
             res.render('pay.njk', { title: 'Booking Received', url: paymentURL });
 
         } catch (err) {
