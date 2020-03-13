@@ -1,0 +1,10 @@
+{% extends "./layouts/default.njk" %}
+
+{% block content %}
+    <h1 class="lbh-heading-h1">Booking received.</h1>
+    <h2 class="lbh-heading-h2">We have received your booking request.</h2>
+    <p class="lbh-body-m">Please go to our payment portal to finalise your booking.</p>
+    <a href="{{ url }}" role="button" draggable="false" class="govuk-button lbh-button" data-module="govuk-button">
+           Pay now
+         </a>
+{% endblock %}
