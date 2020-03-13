@@ -21,11 +21,11 @@ module.exports = {
         // Configuration
         //----------------------
 
-        app.use(session, { 
+        app.use(session({ 
             secret: config.sessionSecret, 
             resave: false, 
             saveUninitialized: false 
-        });
+        }));
         
         app.use(helmet());
         app.use(compression());
