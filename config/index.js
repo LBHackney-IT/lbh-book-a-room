@@ -7,6 +7,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 module.exports = {
     host: process.env.HOST || "localhost",
     port: parseInt(process.env.PORT, 10) || 5000,
+    sessionSecret: process.env.SESSION_SECRET,
 
     onsched: {
         onsched_client_id:  process.env.ONSCHED_CLIENT_ID,

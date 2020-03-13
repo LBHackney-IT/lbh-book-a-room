@@ -1,10 +1,12 @@
 const express = require('express');
+const session = require('express-session');
 const compression = require('compression');
 const helmet = require('helmet');
 const path = require('path');
 const nunjucks  = require('nunjucks');
 const morgan = require('morgan');
 
+const config = require('../config');
 const indexRouter = require('../routes/index');
 const roomsRouter = require('../routes/rooms');
 const bookingsRouter = require('../routes/bookings');
@@ -19,8 +21,15 @@ module.exports = {
         // Configuration
         //----------------------
 
+        app.use(session, { 
+            secret: config.sessionSecret, 
+            resave: false, 
+            saveUninitialized: false 
+        });
+        
         app.use(helmet());
         app.use(compression());
+
         app.use(morgan(
             ':method :url :status :response-time ms', 
             { stream: logger.stream }
