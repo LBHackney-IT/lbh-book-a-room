@@ -7,6 +7,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 module.exports = {
     host: process.env.HOST || "localhost",
     port: parseInt(process.env.PORT, 10) || 5000,
+    protocol: process.env.protocol,
     sessionSecret: process.env.SESSION_SECRET,
 
     onsched: {
@@ -45,6 +46,7 @@ module.exports = {
     },
 
     payment: {
-        fundCode: process.env.PAYMENT_FUND_CODE
+        URLBase: process.env.PAYMENT_URL_BASE,
+        catalogueId: process.env.PAYMENT_CATALOGUE_CODE
     }
 }

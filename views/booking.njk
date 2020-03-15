@@ -2,6 +2,7 @@
 {% from "lbh-input/macro.njk" import lbhInput %}
 {% from "lbh-character-count/macro.njk" import lbhCharacterCount %}
 {% from "lbh-checkboxes/macro.njk" import lbhCheckboxes %}
+{% from "lbh-button/macro.njk" import lbhButton %}
 
 {% block content %}
     <h1 class="lbh-heading-h1">Your booking details</h1>
@@ -34,7 +35,7 @@
 
     <h3 class="lbh-heading-h3">Hirer details</h3>
 
-    <form action="">
+    <form action="/booking" method="post">
         {{ lbhInput({
             "label": {
                 "text": "First name"
@@ -126,17 +127,21 @@
             </div>
         </div>
     
+        <h3 class="lbh-heading-h3">Your privacy</h3>
+        <p class="lbh-body-m">We only use your data to administer this booking. Data collected in this form will only be
+        accessible by a restricted number of staff from our libaries teams at Hackney Council.</p>
+        
+        <p class="lbh-body-m">We won't share your personal details with anyone else. We will remove your contact data from our systems after six years.</p>
+
+        <p class="lbh-body-m">Find our more about our privacy policy at <a href="#">www.hackney.gov.uk/privacy</a></p>
+
+         {{ lbhButton({
+            "element": "input",
+            "name": "submit-booking",
+            "text": "Submit booking"
+        }) }}
+
+
+
     </form>
-
-    <h3 class="lbh-heading-h3">Your privacy</h3>
-    <p class="lbh-body-m">We only use your data to administer this booking. Data collected in this form will only be
-    accessible by a restricted number of staff from our libaries teams at Hackney Council.</p>
-    
-    <p class="lbh-body-m">We won't share your personal details with anyone else. We will remove your contact data from our systems after six years.</p>
-
-    <p class="lbh-body-m">Find our more about our privacy policy at <a href="#">www.hackney.gov.uk/privacy</a></p>
-
-    <a href="#" role="button" draggable="false" class="govuk-button lbh-button" data-module="govuk-button">
-        Payment details
-    </a>
 {% endblock %}

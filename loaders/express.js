@@ -10,6 +10,7 @@ const config = require('../config');
 const indexRouter = require('../routes/index');
 const roomsRouter = require('../routes/rooms');
 const bookingsRouter = require('../routes/bookings');
+const payRouter = require('../routes/pay');
 const confirmationRouter = require('../routes/confirmation');
 
 const logger = require('../middleware/logger');
@@ -66,6 +67,7 @@ module.exports = {
 
         app.use('/room', roomsRouter);
         app.use('/booking', bookingsRouter);
+        app.use('/pay', payRouter);
         app.use('/confirmation', confirmationRouter);
         app.use('/', indexRouter);
 
