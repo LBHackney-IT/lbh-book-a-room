@@ -1,11 +1,27 @@
 {% extends "./layouts/default.njk" %}
-{% from "lbh-input/macro.njk" import lbhInput %}
-{% from "lbh-character-count/macro.njk" import lbhCharacterCount %}
-{% from "lbh-checkboxes/macro.njk" import lbhCheckboxes %}
+
 {% from "lbh-button/macro.njk" import lbhButton %}
 
 {% block content %}
     <h1 class="lbh-heading-h1">Your booking details</h1>
+
+    {% if validationErrors %}      
+        <div class="govuk-error-summary optional-extra-class lbh-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+            <h2 class="govuk-error-summary__title" id="error-summary-title">
+                There is a problem
+            </h2>
+            <div class="govuk-error-summary__body">
+                <ul class="govuk-list govuk-error-summary__list">
+                {% for error in validationErrors %}
+                    <li>
+                        <a href="#{{ error.param }}">{{ error.msg }}</a>
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+    {% endif %}
+    
 
     <section>
         <div class="panel">
@@ -25,10 +41,8 @@
             Projector:
             </div>
 
-
             <h3 class="color-white">Total cost of booking: £</h3>
         </div>
-    
     </section>
 
     <h2 class="lbh-heading-h2">Booking details</h2>
@@ -36,91 +50,169 @@
     <h3 class="lbh-heading-h3">Hirer details</h3>
 
     <form action="/booking" method="post">
-        {{ lbhInput({
-            "label": {
-                "text": "First name"
-            },
-            "id": "booking-first-name",
-            "name": "booking-first-name",
-            "classes": "govuk-input--width-20"
-        }) }}
-
-        {{ lbhInput({
-            "label": {
-                "text": "Surname"
-            },
-            "id": "booking-last-name",
-            "name": "booking-last-name",
-            "classes": "govuk-input--width-20"
-        }) }}
-
-        {{ lbhInput({
-            "label": {
-                "text": "Name of organisation (optional)"
-            },
-            "id": "booking-organisation-name",
-            "name": "booking-organisation-name",
-            "classes": "govuk-input--width-20"
-        }) }}
-
-        {{ lbhInput({
-            "label": {
-                "text": "Contact number (optional)"
-            },
-            "id": "booking-contact-number",
-            "name": "booking-contact-number",
-            "classes": "govuk-input--width-20"
-        }) }}
-
-        {{ lbhInput({
-            "label": {
-                "text": "Email"
-            },
-            "id": "booking-email",
-            "name": "booking-email",
-            "classes": "govuk-input--width-20"
-        }) }}
-
+        <div class="govuk-form-group {{ 'govuk-form-group--error' if errorFields.firstName }} lbh-form-group">
+            <label class="govuk-label  lbh-label" for="input-with-hint-text">
+                First name
+            </label>
             
-        <h3 class="lbh-heading-h3">Event details</h3>
+            {% if errorFields.firstName %}
+                <span id="input-with-error-message-error" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> {{ errorFields.firstName.msg }}
+                </span>
+            {% endif %}
 
-        {{ lbhInput({
-            "label": {
-                "text": "Event name"
-            },
-            "id": "booking-event-name",
-            "name": "test-width-20",
-            "classes": "govuk-input--width-20"
-        }) }}
+            <input 
+                class="govuk-input lbh-input govuk-input--width-20" 
+                id="booking_first_name" 
+                name="booking_first_name" 
+                type="text" 
+                value="{{ oldInput.firstName }}">
+        </div>
 
+        <div class="govuk-form-group {{ 'govuk-form-group--error' if errorFields.surname }} lbh-form-group">
+            <label class="govuk-label  lbh-label" for="input-with-hint-text">
+                Surname
+            </label>
 
-        {{ lbhCharacterCount({
-            "name": "booking-event-details",
-            "id": "booking-event-details",
-            "maxlength": 200,
-            "label": {
-                "text": "Description of event"
-            },
-            "hint": {
-                "text": "Please tell us what you plan to us the room for. This will enable us to check that you meet the Council's policy on room usage without us having to contact you further."
-            }
-        }) }}
+            {% if errorFields.surname %}
+                <span id="input-with-error-message-error" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> {{ errorFields.surname.msg }}
+                </span>
+            {% endif %}
 
-        {{ lbhInput({
-            "label": {
-                "text": "Expected number of attendees"
-            },
-            "id": "booking-first-name",
-            "name": "booking-first-name",
-            "classes": "govuk-input--width-5"
-        }) }}
+            <input 
+                class="govuk-input lbh-input govuk-input--width-20" 
+                id="booking_surname" 
+                name="booking_surname" 
+                type="text" 
+                value="{{ oldInput.surname }}">
+        </div>
 
         <div class="govuk-form-group lbh-form-group">
+            <label class="govuk-label  lbh-label" for="input-with-hint-text">
+                Name of organisation (optional)
+            </label>
+
+            <input 
+                class="govuk-input lbh-input govuk-input--width-20" 
+                id="booking_organisation_name" 
+                name="booking_organisation_name" 
+                type="text" 
+                value="{{ oldInput.orgName }}">
+        </div>
         
+        <div class="govuk-form-group {{ 'govuk-form-group--error' if errorFields.email }} lbh-form-group">
+            <label class="govuk-label  lbh-label" for="input-with-hint-text">
+                Email
+            </label>
+
+            {% if errorFields.email %}
+                <span id="input-with-error-message-error" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> {{ errorFields.email.msg }}
+                </span>
+            {% endif %}
+
+            <input 
+                class="govuk-input lbh-input govuk-input--width-20" 
+                id="booking_email" 
+                name="booking_email" 
+                type="text" 
+                value="{{ oldInput.email }}">
+        </div>
+
+        <div class="govuk-form-group lbh-form-group">
+            <label class="govuk-label  lbh-label" for="input-with-hint-text">
+                Contact number (optional)
+            </label>
+
+            <input 
+                class="govuk-input lbh-input govuk-input--width-20" 
+                id="booking_contact_number" 
+                name="booking_contact_number" 
+                type="text" 
+                value="{{ oldInput.contactNumber }}">
+        </div>
+
+        <h3 class="lbh-heading-h3">Event details</h3>
+
+        <div class="govuk-form-group {{ 'govuk-form-group--error' if errorFields.eventName }} lbh-form-group">
+            <label class="govuk-label  lbh-label" for="input-with-hint-text">
+                Event name
+            </label>
+
+            {% if errorFields.eventName %}
+                <span id="input-with-error-message-error" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> {{ errorFields.eventName.msg }}
+                </span>
+            {% endif %}
+
+            <input 
+                class="govuk-input lbh-input govuk-input--width-20" 
+                id="booking_event_name" 
+                name="booking_event_name" 
+                type="text" 
+                value="{{ oldInput.eventName }}">
+        </div>
+
+        <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="10">
+            <div class="govuk-form-group {{ 'govuk-form-group--error' if errorFields.eventDetails }} lbh-form-group">
+                <label class="govuk-label  lbh-label" for="booking_event_details">
+                Description of event
+                </label>
+
+                {% if errorFields.eventDetails %}
+                    <span id="input-with-error-message-error" class="govuk-error-message">
+                    <span class="govuk-visually-hidden">Error:</span> {{ errorFields.eventDetails.msg }}
+                    </span>
+                {% endif %}
+
+                <span id="booking_event_details-hint" class="govuk-hint  lbh-hint">
+                Please tell us what you plan to us the room for. This will enable us to check that you meet the Council's policy on room usage without us having to contact you further.
+                </span>
+                <textarea 
+                    class="govuk-textarea govuk-js-character-count  lbh-character-count" 
+                    id="booking_event_details" 
+                    name="booking_event_details" 
+                    rows="5"
+                    maxlength="200"
+                    aria-describedby="booking_event_details-info booking_event_details-hint">{{ oldInput.eventDetails }}</textarea>
+            </div>
+
+            <span id="booking_event_details-hint-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+                You can enter up to 200 characters
+            </span>
+        </div>
+
+        <div class="govuk-form-group {{ 'govuk-form-group--error' if errorFields.attendeeCount }} lbh-form-group">
+            <label class="govuk-label  lbh-label" for="input-with-hint-text">
+                Expected number of attendees
+            </label>
+
+            {% if errorFields.attendeeCount %}
+                <span id="input-with-error-message-error" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> {{ errorFields.attendeeCount.msg }}
+                </span>
+            {% endif %}
+
+            <input 
+                class="govuk-input lbh-input govuk-input--width-5" 
+                id="booking_attendee_count" 
+                name="booking_attendee_count" 
+                type="text" 
+                value="{{ oldInput.attendeeCount }}">
+        </div>
+
+        <div class="govuk-form-group {{ 'govuk-form-group--error' if errorFields.agreeTC }} lbh-form-group">
+            {% if errorFields.agreeTC %}
+                <span id="input-with-error-message-error" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> {{ errorFields.agreeTC.msg }}
+                </span>
+            {% endif %}
+            
             <div class="govuk-checkboxes  lbh-checkboxes">
                 <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="t-and-c" name="t-and-c" type="checkbox" value="yes" aria-describedby="t-and-c-error">
-                    <label class="govuk-label govuk-checkboxes__label" for="t-and-c">
+                    <input class="govuk-checkboxes__input" id="booking_agree_tc" name="booking_agree_tc" type="checkbox" value="yes" aria-describedby="t-and-c-error">
+                    <label class="govuk-label govuk-checkboxes__label" for="booking_agree_tc">
                         I have read the <a class="lbh-link" href="#" target="_blank">terms and conditions</a>
                     </label>
                 </div>
@@ -140,8 +232,6 @@
             "name": "submit-booking",
             "text": "Submit booking"
         }) }}
-
-
 
     </form>
 {% endblock %}
