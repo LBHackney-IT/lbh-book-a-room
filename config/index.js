@@ -48,5 +48,16 @@ module.exports = {
     payment: {
         URLBase: process.env.PAYMENT_URL_BASE,
         catalogueId: process.env.PAYMENT_CATALOGUE_CODE
+    },
+
+    bookingFormErrors: {
+        firstName: process.env.BOOKING_FORM_FIRST_NAME_ERROR,
+        surname: process.env.BOOKING_FORM_SURNAME_ERROR,
+        email: process.env.BOOKING_FORM_EMAIL_ERROR,
+        eventName: process.env.BOOKING_FORM_EVENT_NAME_ERROR,
+        eventDetails: process.env.BOOKING_FORM_EVENT_DETAILS_ERROR,
+        attendeeCount: process.env.BOOKING_FORM_ATTENDEE_COUNT_ERROR,
+        agreeTC: process.env.BOOKING_FORM_AGREE_TC_ERROR
+
     }
 }
