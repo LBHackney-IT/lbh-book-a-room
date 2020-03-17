@@ -28,6 +28,7 @@ module.exports = {
             saveUninitialized: false 
         }));
         
+        app.use(express.urlencoded());
         app.use(helmet());
         app.use(compression());
 
