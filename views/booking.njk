@@ -48,11 +48,10 @@
     <h2 class="lbh-heading-h2">Booking details</h2>
 
     <h3 class="lbh-heading-h3">Hirer details</h3>
-govuk-input--error
 
     <form action="/booking" method="post">
         <div class="govuk-form-group {{ 'govuk-form-group--error' if errorFields.firstName }} lbh-form-group">
-            <label class="govuk-label lbh-label" for="input-with-hint-text">
+            <label class="govuk-label lbh-label" for="booking_first_name">
                 First name
             </label>
             
@@ -71,7 +70,7 @@ govuk-input--error
         </div>
 
         <div class="govuk-form-group {{ 'govuk-form-group--error' if errorFields.surname }} lbh-form-group">
-            <label class="govuk-label lbh-label" for="input-with-hint-text">
+            <label class="govuk-label lbh-label" for="booking_surname">
                 Surname
             </label>
 
@@ -90,7 +89,7 @@ govuk-input--error
         </div>
 
         <div class="govuk-form-group lbh-form-group">
-            <label class="govuk-label lbh-label" for="input-with-hint-text">
+            <label class="govuk-label lbh-label" for="booking_organisation_name">
                 Name of organisation (optional)
             </label>
 
@@ -103,7 +102,7 @@ govuk-input--error
         </div>
         
         <div class="govuk-form-group {{ 'govuk-form-group--error' if errorFields.email }} lbh-form-group">
-            <label class="govuk-label lbh-label" for="input-with-hint-text">
+            <label class="govuk-label lbh-label" for="booking_email">
                 Email
             </label>
 
@@ -122,7 +121,7 @@ govuk-input--error
         </div>
 
         <div class="govuk-form-group lbh-form-group">
-            <label class="govuk-label lbh-label" for="input-with-hint-text">
+            <label class="govuk-label lbh-label" for="booking_contact_number">
                 Contact number (optional)
             </label>
 
@@ -130,14 +129,14 @@ govuk-input--error
                 class="govuk-input lbh-input govuk-input--width-20" 
                 id="booking_contact_number" 
                 name="booking_contact_number" 
-                type="text" 
+                type="tel" 
                 value="{{ oldInput.contactNumber }}">
         </div>
 
         <h3 class="lbh-heading-h3">Event details</h3>
 
         <div class="govuk-form-group {{ 'govuk-form-group--error' if errorFields.eventName }} lbh-form-group">
-            <label class="govuk-label lbh-label" for="input-with-hint-text">
+            <label class="govuk-label lbh-label" for="booking_event_name">
                 Event name
             </label>
 
@@ -176,7 +175,7 @@ govuk-input--error
                     name="booking_event_details" 
                     rows="5"
                     maxlength="200"
-                    aria-describedby="booking_event_details-info booking_event_details-hint">{{ oldInput.eventDetails }}</textarea>
+                    aria-describedby="booking_event_details-hint">{{ oldInput.eventDetails }}</textarea>
             </div>
 
             <span id="booking_event_details-hint-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
@@ -185,7 +184,7 @@ govuk-input--error
         </div>
 
         <div class="govuk-form-group {{ 'govuk-form-group--error' if errorFields.attendeeCount }} lbh-form-group">
-            <label class="govuk-label lbh-label" for="input-with-hint-text">
+            <label class="govuk-label lbh-label" for="booking_attendee_count">
                 Expected number of attendees
             </label>
 
@@ -212,7 +211,13 @@ govuk-input--error
             
             <div class="govuk-checkboxes  lbh-checkboxes">
                 <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="booking_agree_tc" name="booking_agree_tc" type="checkbox" value="yes" aria-describedby="t-and-c-error">
+                    <input 
+                        class="govuk-checkboxes__input" 
+                        id="booking_agree_tc" 
+                        name="booking_agree_tc" 
+                        type="checkbox" value="yes" 
+                        aria-describedby="booking_agree_tc">
+
                     <label class="govuk-label govuk-checkboxes__label" for="booking_agree_tc">
                         I have read the <a class="lbh-link" href="#" target="_blank">terms and conditions</a>
                     </label>
