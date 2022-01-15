@@ -71,7 +71,7 @@
     "html5shiv": "^3.7.3",
     "js-yaml": "^3.13.1",
     "map-stream": "0.0.7",
-    "marked": "^0.6.2",
+    "marked": "^4.0.10",
     "merge-stream": "^2.0.0",
     "node-sass": "^4.11.0",
     "nodemon": "^1.18.11",
